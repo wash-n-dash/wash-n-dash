@@ -1,4 +1,4 @@
-.digits-landing-background {
-  background: url('/images/digits-background.jpg') no-repeat center center fixed;
-  background-size: cover;
+.wash-landing-background {
+  background: url('/images/wash-n-dash-landing.png') no-repeat center center fixed;
+  background-size: contain;
 }
