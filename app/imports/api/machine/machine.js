@@ -12,7 +12,7 @@ const MachineSchema = new SimpleSchema({
     allowedValues: ['washer', 'dryer'],
     defaultValue: 'washer',
   },
-  freeAfter: Date
+  freeAfter: Date,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
