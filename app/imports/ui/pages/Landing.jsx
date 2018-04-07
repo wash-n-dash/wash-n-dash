@@ -1,17 +1,19 @@
+/* eslint-disable max-len */
 import React from 'react';
-import { Grid, Icon, Header } from 'semantic-ui-react';
+import { Image, Grid, Icon, Header } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
     return (
-        <div className='digits-landing-background'>
+        <div className={'wash-landing-background'}>
+          <Image src='images/WashNDashLogo.svg' centered/>
           <Grid container stackable centered columns={3}>
 
             <Grid.Column textAlign='center'>
-              <Icon size='huge' name='users'inverted/>
+              <Icon size='huge' name='users' inverted/>
               <Header as='h1' inverted>Multiple Users</Header>
-              <Header as='h3' inverted>This address book enables any number of users to login and save thier business contacts.  You can only see the contacts you have created.</Header>
+              <Header as='h3' inverted>This address book enables any number of users to login and save their business contacts.  You can only see the contacts you have created.</Header>
             </Grid.Column>
 
             <Grid.Column textAlign='center'>
