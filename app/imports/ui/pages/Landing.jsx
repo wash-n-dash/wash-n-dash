@@ -7,7 +7,7 @@ class Landing extends React.Component {
   render() {
     return (
         <div className={'wash-landing-background'}>
-          <Image src='images/logo2.png' fluid />
+          <Image src='images/WashNDashLogo.svg' centered/>
           <Grid container stackable centered columns={3}>
 
             <Grid.Column textAlign='center'>
