@@ -10,6 +10,7 @@ class Footer extends React.Component {
             <hr />
               University of Hawaii at Manoa<br />
               Created by: David Badke, Riley Cammack, Olivia Murray, Justin Pham
+            <br /><br />
           </div>
         </footer>
     );
