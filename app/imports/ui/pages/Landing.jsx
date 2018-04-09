@@ -6,8 +6,8 @@ import { Image } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
     return (
-        <div className={'wash-landing-background'}>
-          <Image src='images/WashNDashLogo.svg' centered/>
+        <div className='wash-landing-background'>
+          <Image src='images/WashNDashLogo.svg' centered style={{ position: 'relative', top: '-150px' }}/>
         </div>
     );
   }
