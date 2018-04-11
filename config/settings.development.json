@@ -1,4 +1,11 @@
 {
+  "defaultMachines": [
+    { "machineType": "washer", "claimedForMinutes": 0 },
+    { "machineType": "washer", "claimedForMinutes": 20 },
+    { "machineType": "dryer", "claimedForMinutes": 0 },
+    { "machineType": "dryer", "claimedForMinutes": 20 }
+  ],
+
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
