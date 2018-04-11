@@ -38,11 +38,11 @@ class Machine extends React.Component {
               {this.props.contact.address}
             </Card.Meta>
             <Card.Description>
-              {this.props.contact.description}
+              {this.props.machine.freeAfter}
               </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
+            <Link to={`/edit/${this.props.machine._id}`}>Edit</Link>
           </Card.Content>
           <Card.Content extra>
             <Feed>
@@ -50,7 +50,7 @@ class Machine extends React.Component {
             </Feed>
           </Card.Content>
           <Card.Content extra>
-            <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
+            <AddNote machineId={this.props.machine._id}/>
           </Card.Content>
           <Card.Content extra>
             <Button basic onClick={this.onClick}>Delete</Button>
@@ -68,4 +68,4 @@ Machine.propTypes = {
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Contact);
+export default withRouter(Machine);
