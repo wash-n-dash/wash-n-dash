@@ -2,3 +2,9 @@
   background: url('/images/wash-n-dash-landing.png') no-repeat center center fixed;
   background-size: cover;
 }
+
+.crop {
+  width: 180px;
+  height: 30px;
+  margin-top: 5px;
+}
