@@ -7,7 +7,7 @@ const Dryers = new Mongo.Collection('Dryers');
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const DryerSchema = new SimpleSchema({
-  washerNumber: String,
+  dryerNumber: String,
   enabled: {
     type: String,
     allowedValues: ['Enabled', 'Disabled'],
