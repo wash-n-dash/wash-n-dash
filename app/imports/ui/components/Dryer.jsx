@@ -30,10 +30,10 @@ class Dryer extends React.Component {
           <Card.Content>
             <Image floated='left' size='small' src="https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png" />
             <Card.Header>
-              Dryer ${this.props.dryer.dryerNumber}
+              Dryer {this.props.dryer.dryerNumber}
             </Card.Header>
             <Card.Description>
-              {this.props.dryer.timeRemaining}
+              Time Remaining: {this.props.dryer.timeRemaining}
               </Card.Description>
           </Card.Content>
           <Card.Content extra>

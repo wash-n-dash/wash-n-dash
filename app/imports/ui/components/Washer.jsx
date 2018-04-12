@@ -30,10 +30,10 @@ class Washer extends React.Component {
           <Card.Content>
             <Image floated='left' size='small' src="https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png" />
             <Card.Header>
-              Washer ${this.props.washer.washerNumber}
+              Washer {this.props.washer.washerNumber}
             </Card.Header>
             <Card.Description>
-              {this.props.washer.timeRemaining}
+              Time Remaining: {this.props.washer.timeRemaining}
               </Card.Description>
           </Card.Content>
           <Card.Content extra>

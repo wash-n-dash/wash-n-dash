@@ -14,6 +14,7 @@ const DryerSchema = new SimpleSchema({
     defaultValue: 'Enabled',
   },
   timeRemaining: String,
+  owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
