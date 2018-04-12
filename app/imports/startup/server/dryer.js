@@ -12,7 +12,7 @@ function addData(data) {
 if (Dryers.find().count() === 0) {
   if (Meteor.settings.defaultDryers) {
     console.log('Creating default dryers.');
-    Meteor.settings.defaultContacts.map(data => addData(data));
+    Meteor.settings.defaultDryers.map(data => addData(data));
   }
 }
 
