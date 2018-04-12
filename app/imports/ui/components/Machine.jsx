@@ -20,7 +20,7 @@ class Machine extends React.Component {
               {this.props.machine.type}
             </Card.Header>
             <Card.Description>
-              {this.props.machine.freeAfter > new Date() ? ("claimed until " + this.props.machine.freeAfter) : ("This machine is free")}
+              This {this.props.machine.machineType} is {this.props.machine.freeAfter > new Date() ? ("claimed until " + this.props.machine.freeAfter) : ("free")}
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
