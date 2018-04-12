@@ -18,9 +18,14 @@ class ListMachines extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>List Machines</Header>
+          <Header as="h2" textAlign="center" inverted>Washers</Header>
           <Card.Group>
-            {this.props.machines.map((machine, index) =>
+            {this.props.machines.filter(m => m.machineType === 'washer').map((machine, index) =>
+              <Machine key={index} machine={machine}/>)}
+          </Card.Group>
+          <Header as="h2" textAlign="center" inverted>Dryers</Header>
+          <Card.Group>
+            {this.props.machines.filter(m => m.machineType === 'dryer').map((machine, index) =>
               <Machine key={index} machine={machine}/>)}
           </Card.Group>
         </Container>
