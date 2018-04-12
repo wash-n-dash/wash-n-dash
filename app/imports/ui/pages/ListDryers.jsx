@@ -18,7 +18,7 @@ class ListDryers extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>List Washers</Header>
+          <Header as="h2" textAlign="center" inverted>List Dryers</Header>
           <Card.Group>
             {this.props.dryers.map((dryer, index) => <Dryer key={index}
                                           dryer={dryer}/>)}
@@ -31,7 +31,6 @@ class ListDryers extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListDryers.propTypes = {
   dryers: PropTypes.array.isRequired,
-  notes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 

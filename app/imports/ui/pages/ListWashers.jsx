@@ -31,7 +31,6 @@ class ListWashers extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListWashers.propTypes = {
   washers: PropTypes.array.isRequired,
-  notes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
