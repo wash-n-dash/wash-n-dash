@@ -12,13 +12,8 @@ class NavBar extends React.Component {
     const menuStyle = { marginBottom: '10px' };
     return (
       <Menu style={menuStyle} attached="top" borderless inverted color='blue'>
-<<<<<<< HEAD
         <Menu.Item className='crop' as={NavLink} activeClassName="" exact to="/">
           <Image size='small' src='images/washndashlogo.png'/>
-=======
-        <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Header inverted as='h1'>Wash-n-Dash</Header>
->>>>>>> issue-12
         </Menu.Item>
         <Menu.Item as={NavLink} activeClassName="active" exact to="/machines" key='machines'>List Machines</Menu.Item>,
         <Menu.Item as={NavLink} activeClassName="active" exact to="/washers" key='washers'>List Washers</Menu.Item>,
