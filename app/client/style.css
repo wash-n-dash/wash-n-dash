@@ -8,3 +8,70 @@
   height: 30px;
   margin-top: 5px;
 }
+
+/* washing machine loading icon */
+#loader {
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #032661;
+  border-right: 16px solid #c2fefe;
+  border-bottom: 16px solid #0f55aa;
+  border-left: 16px solid #2c98d6;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+#box {
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  margin: -75px 0 0 -75px;
+  width: 200px;
+  height: 220px;
+  border: 2px solid white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#knob {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  z-index: 1;
+  margin: -75px 0 0 -75px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 100%;
+}
+
+#rectangle {
+  width: 50px;
+  height: 10px;
+  border: 2px solid white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  margin: -92px 0 0 20px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
