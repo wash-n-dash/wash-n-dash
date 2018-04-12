@@ -4,14 +4,14 @@ import { Dryers } from '../../api/dryer/dryer.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding: ${data.dryerNumber} (${data.enabled})`);
   Dryers.insert(data);
 }
 
 /** Initialize the collection if empty. */
 if (Dryers.find().count() === 0) {
   if (Meteor.settings.defaultDryers) {
-    console.log('Creating default data.');
+    console.log('Creating default dryers.');
     Meteor.settings.defaultContacts.map(data => addData(data));
   }
 }

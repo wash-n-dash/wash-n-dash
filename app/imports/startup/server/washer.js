@@ -1,17 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Washers } from '../../api/waasher/washer.js';
+import { Washers } from '../../api/washer/washer.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding: ${data.washerNumber} (${data.enabled})`);
   Washers.insert(data);
 }
 
 /** Initialize the collection if empty. */
 if (Washers.find().count() === 0) {
   if (Meteor.settings.defaultWashers) {
-    console.log('Creating default data.');
+    console.log('Creating default Washers.');
     Meteor.settings.defaultWashers.map(data => addData(data));
   }
 }
