@@ -1,3 +1,5 @@
 # wash-n-dash
 
-second repository to hold the application code
+[about wash-n-dash](https://wash-n-dash.github.io/)
+
+[view the deployed app](http://washndash.meteorapp.com/#/)
