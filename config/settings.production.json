@@ -2,19 +2,23 @@
   "defaultMachines": [
     {
       "machineType": "washer",
-      "claimedForMinutes": 0
+      "enabled": "enabled",
+      "timeRemaining": 20
     },
     {
       "machineType": "washer",
-      "claimedForMinutes": 20
+      "enabled": "disabled",
+      "timeRemaining": 20
     },
     {
       "machineType": "dryer",
-      "claimedForMinutes": 0
+      "enabled": "enabled",
+      "timeRemaining": 0
     },
     {
       "machineType": "dryer",
-      "claimedForMinutes": 20
+      "enabled": "disabled",
+      "timeRemaining": 20
     }
   ],
   "defaultAccounts": [

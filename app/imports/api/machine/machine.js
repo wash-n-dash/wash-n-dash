@@ -17,10 +17,8 @@ const MachineSchema = new SimpleSchema({
     allowedValues: ['enabled', 'disabled'],
     defaultValue: 'enabled',
   },
-  /** machineNumber: Number,
-   timeRemaining: Number,
-   */
-  freeAfter: Date,
+  /* machineNumber: Number, */
+  timeRemaining: Number,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
