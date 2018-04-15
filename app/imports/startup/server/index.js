@@ -3,4 +3,3 @@ import './machines.js';
 import './contact.js';
 import './note.js';
 import './machine.js';
-import './washer.js';
