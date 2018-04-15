@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { Image, Header, Container, Grid, Icon } from 'semantic-ui-react';
+import { Image, Header, Grid, Icon } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
     return (
-        <div className='wash-landing-background' style={{ height: '1000px' }}>
+        <div className='wash-landing-background'>
           <div style={{ marginBottom: '100px' }}>
             <Image src='images/washndashlogo.png' size='huge' centered
                    style={{ position: 'relative', top: '80px', left: '100px' }}/>
@@ -47,12 +47,37 @@ class Landing extends React.Component {
             </Grid>
           </div>
 
-          <div>
-            <Container className='slideshow' centered>
-              <span><Header as='h1' inverted>hi</Header></span>
-              <span><Header as='h1' inverted>hello</Header></span>
-            </Container>
+
+          <div style={{ height: '300px', paddingTop: '120px' }}>
+            <Grid centered columns={4}>
+
+              <Grid.Column>
+                <Header className='nowrap' floated='right' style={{ fontSize: '50px', marginRight: '-250px' }} inverted
+                        size='huge'>Number of available&nbsp;</Header>
+              </Grid.Column>
+
+              <Grid.Column floated='right' style={{ fontSize: '40px', marginRight: '-450px', marginTop: '-19px' }}>
+                <div className='slideshow'>
+                  <span><Header inverted>washers</Header></span>
+                  <span><Header inverted>dryers</Header></span>
+                </div>
+              </Grid.Column>
+
+              <Grid.Column>
+                <Header inverted size='huge' floated='right'
+                        style={{ fontSize: '50px', marginRight: '-50px' }}>:</Header>
+              </Grid.Column>
+
+              <Grid.Column floated='right' style={{ fontSize: '50px', marginTop: '-25px' }}>
+                <div className='slideshow'>
+                  <span><Header inverted>99</Header></span>
+                  <span><Header inverted>100</Header></span>
+                </div>
+              </Grid.Column>
+
+            </Grid>
           </div>
+
         </div>
     );
   }
