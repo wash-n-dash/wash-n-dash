@@ -1,10 +1,17 @@
 /* eslint-disable max-len */
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Image, Header, Grid, Icon } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
+  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
+    return this.renderPage();
+  }
+
+  /* Render the page once total number of available machines have been received. */
+  renderPage() {
     return (
         <div className='wash-landing-background'>
           <div style={{ marginBottom: '100px' }}>
