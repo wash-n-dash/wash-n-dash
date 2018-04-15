@@ -40,16 +40,5 @@
     { "washerNumber": "3", "enabled": "Enabled", "timeRemaining": "00:08",
       "owner": "john@foo.com"
     }
-  ],
-  "defaultDryers": [
-    { "dryerNumber": "1", "enabled": "Enabled", "timeRemaining": "00:54",
-      "owner": "john@foo.com"
-    },
-    { "dryerNumber": "2", "enabled": "Enabled", "timeRemaining": "00:06",
-      "owner": "john@foo.com"
-    },
-    { "dryerNumber": "3", "enabled": "Enabled", "timeRemaining": "00:27",
-      "owner": "john@foo.com"
-    }
   ]
 }

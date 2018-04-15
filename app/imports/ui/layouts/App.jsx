@@ -14,7 +14,6 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ListMachines from '../pages/ListMachines';
 import ListWashers from '../pages/ListWashers';
-import ListDryers from '../pages/ListDryers';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -29,7 +28,6 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/machines" component={ListMachines}/>
               <Route path="/washers" component={ListWashers}/>
-              <Route path="/dryers" component={ListDryers}/>
               <AdminProtectedRoute path="/admin" component={ListContactsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

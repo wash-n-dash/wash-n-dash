@@ -24,17 +24,19 @@ class Washer extends React.Component {
   onClick() {
     Washers.remove(this.props.washer._id, this.deleteCallback);
   }
+
   render() {
     return (
         <Card centered>
           <Card.Content>
-            <Image floated='left' size='small' src="https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png" />
+            <Image floated='left' size='small'
+                   src="https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png"/>
             <Card.Header>
               Washer {this.props.washer.washerNumber}
             </Card.Header>
             <Card.Description>
               Time Remaining: {this.props.washer.timeRemaining}
-              </Card.Description>
+            </Card.Description>
           </Card.Content>
           <Card.Content extra>
             <Button>Update</Button>
