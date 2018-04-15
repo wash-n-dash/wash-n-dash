@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
         <Router>
-          <div>
+          <div style={{ marginTop: '50px' }}>
             <NavBar/>
             <Switch>
               <Route exact path="/" component={Landing}/>
