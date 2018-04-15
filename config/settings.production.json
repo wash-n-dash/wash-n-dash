@@ -7,7 +7,7 @@
     },
     {
       "machineType": "washer",
-      "enabled": "disabled",
+      "enabled": "enabled",
       "timeRemaining": 20
     },
     {
