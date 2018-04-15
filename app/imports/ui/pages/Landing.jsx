@@ -2,6 +2,9 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Image, Header, Grid, Icon } from 'semantic-ui-react';
+import { Machines } from '/imports/api/machine/machine';
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -77,8 +80,12 @@ class Landing extends React.Component {
 
               <Grid.Column floated='right' style={{ fontSize: '50px', marginTop: '-25px' }}>
                 <div className='slideshow'>
-                  <span><Header inverted>99</Header></span>
-                  <span><Header inverted>100</Header></span>
+                  <span><Header inverted>
+                    {this.props.machines.filter(m => (m.machineType === 'washer') && (m.enabled === 'enabled')).length}
+                  </Header></span>
+                  <span><Header inverted>
+                    {this.props.machines.filter(m => (m.machineType === 'dryer') && (m.enabled === 'enabled')).length}
+                  </Header></span>
                 </div>
               </Grid.Column>
 
@@ -90,4 +97,18 @@ class Landing extends React.Component {
   }
 }
 
-export default Landing;
+/** Require machines documents in the props. */
+Landing.propTypes = {
+  machines: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};
+
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe('Machines');
+  return {
+    machines: Machines.find({}).fetch(),
+    ready: (subscription.ready()),
+  };
+})(Landing);
