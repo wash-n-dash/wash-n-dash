@@ -33,11 +33,10 @@ class Machine extends React.Component {
                    src="https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png"/>
             <Card.Header>
               {this.props.machine.machineType}
-              /** this.props.machine.machineNumber **/
+              {this.props.machine.machineNumber}
             </Card.Header>
             <Card.Description>
               Time Remaining: {this.props.machine.timeRemaining}
-              /** This {this.props.machine.machineType} is {this.props.machine.freeAfter > new Date() ? ('claimed until ' + this.props.machine.freeAfter) : ('free')} **/
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
