@@ -17,8 +17,13 @@ const MachineSchema = new SimpleSchema({
     allowedValues: ['enabled', 'disabled'],
     defaultValue: 'enabled',
   },
-  /* machineNumber: Number, */
+  machineNumber: Number,
   timeRemaining: Number,
+  location: String,
+  owner: {
+    type: String,
+    defaultValue: 'admin@foo.com',
+  },
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
