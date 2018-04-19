@@ -2,21 +2,25 @@
   "defaultMachines": [
     {
       "machineType": "washer",
+      "machineNumber": 1,
       "enabled": "enabled",
       "timeRemaining": 20
     },
     {
       "machineType": "washer",
+      "machineNumber": 2,
       "enabled": "enabled",
       "timeRemaining": 20
     },
     {
       "machineType": "dryer",
+      "machineNumber": 1,
       "enabled": "enabled",
       "timeRemaining": 0
     },
     {
       "machineType": "dryer",
+      "machineNumber": 2,
       "enabled": "disabled",
       "timeRemaining": 20
     }

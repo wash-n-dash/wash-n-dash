@@ -1,13 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Header, Loader } from 'semantic-ui-react';
-import { Contacts } from '/imports/api/contact/contact';
-import ContactAdmin from '/imports/ui/components/ContactAdmin';
+import { Table, Container, Card, Header, Loader } from 'semantic-ui-react';
+import { Machines } from '/imports/api/machine/machine';
+import MachineAdmin from '/imports/ui/components/MachineAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListContactsAdmin extends React.Component {
+class ListMachinesAdmin extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -18,27 +18,39 @@ class ListContactsAdmin extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>List Contacts</Header>
+          <Header as="h2" textAlign="center" inverted>List Machines</Header>
           <Card.Group>
-            {this.props.contacts.map((contact, index) => <ContactAdmin key={index} contact={contact}/>)}
+            {this.props.machines.map((machine, index) => <MachineAdmin key={index} machine={machine}/>)}
           </Card.Group>
+        <Table celled>
+          <Table.Header>
+            <Table.HeaderCell>Machine</Table.HeaderCell>
+            <Table.HeaderCell>Status</Table.HeaderCell>
+            <Table.HeaderCell>Disable</Table.HeaderCell>
+          </Table.Header>
+          <Table.body>
+            <Table.Cell>Cell</Table.Cell>
+            <Table.Cell>Cell</Table.Cell>
+            <Table.Cell>Cell</Table.Cell>
+          </Table.body>
+        </Table>
         </Container>
     );
   }
 }
 
-/** Require an array of Stuff documents in the props. */
-ListContactsAdmin.propTypes = {
-  contacts: PropTypes.array.isRequired,
+/** Require an array of Machine documents in the props. */
+ListMachinesAdmin.propTypes = {
+  machines: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('ContactsAdmin');
+  // Get access to Machine documents.
+  const subscription = Meteor.subscribe('MachinesAdmin');
   return {
-    contacts: Contacts.find({}).fetch(),
+    machines: Machines.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(ListContactsAdmin);
+})(ListMachinesAdmin);
