@@ -17,9 +17,18 @@ const MachineSchema = new SimpleSchema({
     allowedValues: ['enabled', 'disabled'],
     defaultValue: 'enabled',
   },
-  machineNumber: Number,
-  timeRemaining: Number,
-  location: String,
+  machineNumber: {
+    type: Number,
+    defaultValue: 0,
+  },
+  timeRemaining: {
+    type: Number,
+    defaultValue: 0,
+  },
+  location: {
+    type: String,
+    defaultValue: 'manoa',
+  },
   owner: {
     type: String,
     defaultValue: 'admin@foo.com',

@@ -1,29 +1,15 @@
 import React from 'react';
-import { Card, Image, Button } from 'semantic-ui-react';
+import { Card, Image, Button, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import Report from '/imports/ui/components/Report';
+import AddReport from '/imports/ui/components/AddReport';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Machines } from '/imports/api/machine/machine';
+import { Reports } from '/imports/api/report/report';
 
 /** renders a single machine */
 class Machine extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.onClick = this.onClick.bind(this);
-  }
-
-  deleteCallback(error) {
-    if (error) {
-      Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
-    } else {
-      Bert.alert({ type: 'success', message: 'Delete succeeded' });
-    }
-  }
-
-  onClick() {
-    Machines.remove(this.props.machine._id, this.deleteCallback);
-  }
 
   render() {
     return (
@@ -45,6 +31,14 @@ class Machine extends React.Component {
           <Card.Content extra>
             <Button>Report</Button>
           </Card.Content>
+          {/*<Card.Content extra>*/}
+            {/*<Feed>*/}
+              {/*{this.props.reports.map((message, index) => <Report key={index} message={message}/>)}*/}
+            {/*</Feed>*/}
+          {/*</Card.Content>*/}
+          <Card.Content extra>
+            <AddReport machineNumber={this.props.machine.machineNumber}/>
+          </Card.Content>
         </Card>
     );
   }
@@ -53,6 +47,7 @@ class Machine extends React.Component {
 /** Require a document to be passed to this component. */
 Machine.propTypes = {
   machine: PropTypes.object.isRequired,
+  reports: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

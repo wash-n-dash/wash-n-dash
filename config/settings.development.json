@@ -2,22 +2,30 @@
   "defaultMachines": [
     {
       "machineType": "washer",
+      "machineNumber": 1,
       "enabled": "enabled",
+      "location": "manoa",
       "timeRemaining": 20
     },
     {
       "machineType": "washer",
+      "machineNumber": 1,
       "enabled": "enabled",
+      "location": "manoa",
       "timeRemaining": 20
     },
     {
       "machineType": "dryer",
+      "machineNumber": 1,
       "enabled": "enabled",
+      "location": "manoa",
       "timeRemaining": 0
     },
     {
       "machineType": "dryer",
+      "machineNumber": 1,
       "enabled": "disabled",
+      "location": "manoa",
       "timeRemaining": 20
     }
   ],
