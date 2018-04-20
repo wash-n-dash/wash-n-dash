@@ -19,7 +19,7 @@ const MachineSchema = new SimpleSchema({
   },
   machineNumber: Number,
   timeRemaining: Number,
-  location: String,
+  //location: String
   owner: {
     type: String,
     defaultValue: 'admin@foo.com',
