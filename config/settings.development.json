@@ -8,19 +8,19 @@
     },
     {
       "machineType": "washer",
-      "machineNumber": 1,
+      "machineNumber": 2,
       "enabled": "enabled",
       "timeRemaining": 20
     },
     {
       "machineType": "dryer",
-      "machineNumber": 1,
+      "machineNumber": 3,
       "enabled": "enabled",
       "timeRemaining": 0
     },
     {
       "machineType": "dryer",
-      "machineNumber": 1,
+      "machineNumber": 4,
       "enabled": "disabled",
       "timeRemaining": 20
     }

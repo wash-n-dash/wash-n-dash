@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Button, Feed } from 'semantic-ui-react';
+import { Card, Image, Button, Feed, Popup } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Report from '/imports/ui/components/Report';
@@ -25,8 +25,12 @@ class Machine extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <div className='ui two buttons'>
-              <Button basic color='green'>Update</Button>
-              <Button basic color='red'>Report</Button>
+              <Popup trigger={ <Button positive>Update</Button> }
+                     content='Click to add 60 minutes to the time remaining'
+                     position='top right'/>
+              <Popup trigger={ <Button negative>Report</Button> }
+                     content='Click to report an issue with this machine'
+                     position='top left'/>
             </div>
           </Card.Content>
           <Card.Content extra>
