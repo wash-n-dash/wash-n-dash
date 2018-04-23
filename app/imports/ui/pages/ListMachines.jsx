@@ -11,8 +11,14 @@ import PropTypes from 'prop-types';
 class ListMachines extends React.Component {
   // locations = this.props.machines.filter(machine => machine.location);
   // locations = [...new Set(this.props.machines.map(machine => machine.location))];
-  locations = [{ text: 'Manoa' }, { text: 'freshman dorm' }, { text: 'apartment' }];
-  machineTypes = [{ text: 'All' }, { text: 'Washing machines' }, { text: 'Dryers' }];
+  locations = [{ text: 'Manoa', value: 'Manoa' }, {
+    text: 'freshman dorm',
+    value: 'freshman dorm',
+  }, { text: 'apartment', value: 'apartment' }];
+  machineTypes = [{
+    text: 'Washing machines',
+    value: 'Washing machines',
+  }, { text: 'Dryers', value: 'Dryers' }];
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
