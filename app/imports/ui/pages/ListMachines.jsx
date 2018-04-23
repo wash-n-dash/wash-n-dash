@@ -7,7 +7,7 @@ import Machine from '/imports/ui/components/Machine';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Machine documents */
 class ListMachines extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -19,22 +19,19 @@ class ListMachines extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>Washers</Header>
+          <Header as="h2" textAlign="center" inverted>Washers/Dryers</Header>
           <Card.Group>
-            {this.props.machines.filter(m => m.machineType === 'washer').map((machine, index) =>
-              <Machine key={index} machine={machine} reports={this.props.reports.filter()}/>)}
-          </Card.Group>
-          <Header as="h2" textAlign="center" inverted>Dryers</Header>
-          <Card.Group>
-            {this.props.machines.filter(m => m.machineType === 'dryer').map((machine, index) =>
-              <Machine key={index} machine={machine} reports={this.props.reports.filter()}/>)}
+            {this.props.machines.map((machine, index) =>
+                <Machine key={index} machine={machine}
+                         reports={this.props.reports.filter(report => (report.machineNumber === machine.machineNumber))}
+                />)}
           </Card.Group>
         </Container>
     );
   }
 }
 
-/** Require an array of Stuff documents in the props. */
+/** Require an array of Machine documents in the props. */
 ListMachines.propTypes = {
   machines: PropTypes.array.isRequired,
   reports: PropTypes.array.isRequired,
@@ -43,7 +40,7 @@ ListMachines.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Machine documents.
   const subscription = Meteor.subscribe('Machines');
   const subscription2 = Meteor.subscribe('Reports');
   return {
