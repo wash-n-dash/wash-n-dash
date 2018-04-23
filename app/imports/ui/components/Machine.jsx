@@ -43,19 +43,20 @@ class Machine extends React.Component {
                 marginTop: 'auto !important',
                 display: 'inline-block !important',
                 position: 'relative',
-                top: '20%',
+                top: '10%',
                 padding: '25px',
               }}>
                 <Modal.Header style={{ color: 'blue' }}>
                   Report an issue for {this.props.machine.machineType} {this.props.machine.machineNumber}
                 </Modal.Header>
+                <AddReport machineNumber={this.props.machine.machineNumber}/>
+                <Header>Reported Issues</Header>
+                <Modal.Content scrolling>
                 <Modal.Description>
-                  <AddReport machineNumber={this.props.machine.machineNumber}/>
-                  <Header>Reported Issues</Header>
                   <Feed>
                     {this.props.reports.map((report, index) => <Report key={index} report={report}/>)}
                   </Feed>
-                </Modal.Description>
+                </Modal.Description></Modal.Content>
               </Modal>
             </div>
           </Card.Content>
