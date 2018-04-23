@@ -37,6 +37,7 @@ class Machine extends React.Component {
               <Popup trigger={<Button negative onClick={this.show}>Report</Button>}
                      content='Click to report an issue with this machine'
                      position='top left'/>
+
               <Modal dimmer='blurring' open={open} onClose={this.close} style={{
                 marginLeft: 'auto',
                 marginRight: 'auto',
@@ -52,17 +53,17 @@ class Machine extends React.Component {
                 <AddReport machineNumber={this.props.machine.machineNumber}/>
                 <Header>Reported Issues</Header>
                 <Modal.Content scrolling>
-                <Modal.Description>
-                  <Feed>
-                    {this.props.reports.map((report, index) => <Report key={index} report={report}/>)}
-                  </Feed>
-                </Modal.Description></Modal.Content>
+                  <Modal.Description>
+                    <Feed>
+                      {this.props.reports.map((report, index) => <Report key={index} report={report}/>)}
+                    </Feed>
+                  </Modal.Description></Modal.Content>
               </Modal>
+
             </div>
           </Card.Content>
         </Card>
-    )
-        ;
+    );
   }
 }
 

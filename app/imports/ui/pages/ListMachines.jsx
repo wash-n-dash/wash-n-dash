@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Header, Loader } from 'semantic-ui-react';
+import { Container, Card, Header, Loader, Dropdown } from 'semantic-ui-react';
 import { Machines } from '/imports/api/machine/machine';
 import { Reports } from '/imports/api/report/report';
 import Machine from '/imports/ui/components/Machine';
@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Machine documents */
 class ListMachines extends React.Component {
+  locations = this.props.machines.filter(machine => (machine.location === 'Manoa'));
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -17,9 +18,13 @@ class ListMachines extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const locations = this.locations;
     return (
         <Container>
           <Header as="h2" textAlign="center" inverted>Washers/Dryers</Header>
+          <Container style={{ marginTop: '20px', marginBottom: '20px' }}>
+            <Dropdown placeholder='Location' fluid multiple search selection options={{ locations }}/>
+          </Container>
           <Card.Group>
             {this.props.machines.map((machine, index) =>
                 <Machine key={index} machine={machine}
