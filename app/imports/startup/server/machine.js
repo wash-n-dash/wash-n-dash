@@ -13,25 +13,15 @@ function addData(data) {
 if (Machines.find({}).count() === 0) {
   if (Meteor.settings.defaultMachines) {
     console.log('Creating the default machines.');
-    Meteor.settings.defaultMachines
-        .map(data => addData(data));
-    /* .map(({ machineType, claimedForMinutes }) => createMachine(machineType, claimedForMinutes)); */
+    Meteor.settings.defaultMachines.map(data => addData(data));
   } else {
     console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }
 }
 
 Meteor.publish('Machines', function publish() {
-  return Machines.find({});
+  if (this.userId) {
+    return Machines.find();
+  }
+  return this.ready();
 });
-
-/* function createMachine(machineType, claimedForMinutes) {
-  console.log(`  Creating ${machineType}.`);
-  const date = new Date();
-  date.setMinutes(date.getMinutes() + claimedForMinutes);
-
-  Machines.insert({
-    machineType: machineType,
-    freeAfter: date,
-  });
-} */

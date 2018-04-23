@@ -36,6 +36,12 @@
       "password": "changeme"
     }
   ],
+  "defaultReports": [
+    {
+      "report": "broken",
+      "machineNumber": 1
+    }
+  ],
   "galaxy.meteor.com": {
     "env": {
       "MONGO_URL": "mongodb://user:changeme@ds121535.mlab.com:21535/washndash"

@@ -1,12 +1,10 @@
 import React from 'react';
 import { Card, Image, Button, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Report from '/imports/ui/components/Report';
 import AddReport from '/imports/ui/components/AddReport';
-import { Bert } from 'meteor/themeteorchef:bert';
 import { Machines } from '/imports/api/machine/machine';
-import { Reports } from '/imports/api/report/report';
 
 /** renders a single machine */
 class Machine extends React.Component {
@@ -18,7 +16,7 @@ class Machine extends React.Component {
             <Image floated='left' size='small'
                    src="https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png"/>
             <Card.Header>
-              {this.props.machine.machineType}
+              {this.props.machine.machineType} &nbsp;
               {this.props.machine.machineNumber}
             </Card.Header>
             <Card.Description>
@@ -31,11 +29,11 @@ class Machine extends React.Component {
           <Card.Content extra>
             <Button>Report</Button>
           </Card.Content>
-          {/*<Card.Content extra>*/}
-            {/*<Feed>*/}
-              {/*{this.props.reports.map((message, index) => <Report key={index} message={message}/>)}*/}
-            {/*</Feed>*/}
-          {/*</Card.Content>*/}
+          <Card.Content extra>
+            <Feed>
+              {this.props.reports.map((report, index) => <Report key={index} report={report}/>)}
+            </Feed>
+          </Card.Content>
           <Card.Content extra>
             <AddReport machineNumber={this.props.machine.machineNumber}/>
           </Card.Content>

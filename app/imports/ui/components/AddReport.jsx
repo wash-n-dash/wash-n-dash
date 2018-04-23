@@ -23,17 +23,17 @@ class AddReport extends React.Component {
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
     if (error) {
-      Bert.alert({ type: 'danger', message: `Add note failed: ${error.message}` });
+      Bert.alert({ type: 'danger', message: `Add report failed: ${error.message}` });
     } else {
-      Bert.alert({ type: 'success', message: 'Add note succeeded' });
+      Bert.alert({ type: 'success', message: 'Add report succeeded' });
       this.formRef.reset();
     }
   }
 
   /** On submit, insert the data. */
   submit(data) {
-    const { message, machineNumber, createdAt } = data;
-    Reports.insert({ message, machineNumber, createdAt }, this.insertCallback);
+    const { report, machineNumber, createdAt } = data;
+    Reports.insert({ report, machineNumber, createdAt }, this.insertCallback);
   }
 
 
@@ -42,7 +42,7 @@ class AddReport extends React.Component {
     return (
         <AutoForm ref={(ref) => { this.formRef = ref; }} schema={ReportSchema} onSubmit={this.submit}>
           <Segment>
-            <TextField label="Add a timestamped report" name='message'/>
+            <TextField label="Add a timestamped report" name='report'/>
             <SubmitField value='Submit'/>
             <ErrorsField/>
             <HiddenField name='machineNumber' value={this.props.machineNumber}/>
