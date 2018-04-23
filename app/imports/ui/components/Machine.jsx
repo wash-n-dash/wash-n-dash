@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Button, Feed, Popup, Modal } from 'semantic-ui-react';
+import { Header, Card, Image, Button, Feed, Popup, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Report from '/imports/ui/components/Report';
@@ -44,15 +44,18 @@ class Machine extends React.Component {
                 display: 'inline-block !important',
                 position: 'relative',
                 top: '20%',
-                padding: '10px',
+                padding: '25px',
               }}>
-                <Modal.Header>
+                <Modal.Header style={{ color: 'blue' }}>
                   Report an issue for {this.props.machine.machineType} {this.props.machine.machineNumber}
                 </Modal.Header>
-                <AddReport machineNumber={this.props.machine.machineNumber}/>
-                <Feed>
-                  {this.props.reports.map((report, index) => <Report key={index} report={report}/>)}
-                </Feed>
+                <Modal.Description>
+                  <AddReport machineNumber={this.props.machine.machineNumber}/>
+                  <Header>Reported Issues</Header>
+                  <Feed>
+                    {this.props.reports.map((report, index) => <Report key={index} report={report}/>)}
+                  </Feed>
+                </Modal.Description>
               </Modal>
             </div>
           </Card.Content>

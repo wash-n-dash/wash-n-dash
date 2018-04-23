@@ -1,6 +1,6 @@
 import React from 'react';
 import { Reports, ReportSchema } from '/imports/api/report/report';
-import { Segment } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
@@ -29,13 +29,11 @@ class AddReport extends React.Component {
   render() {
     return (
         <AutoForm ref={(ref) => { this.formRef = ref; }} schema={ReportSchema} onSubmit={this.submit}>
-          <Segment>
-            <TextField label="Add a timestamped report" name='report'/>
+            <Container style={{ margin: '20px' }}><TextField label="Add a timestamped report" name='report'/>
             <SubmitField value='Submit'/>
             <ErrorsField/>
             <HiddenField name='machineNumber' value={this.props.machineNumber}/>
-            <HiddenField name='createdAt' value={new Date()}/>
-          </Segment>
+            <HiddenField name='createdAt' value={new Date()}/></Container>
         </AutoForm>
     );
   }
