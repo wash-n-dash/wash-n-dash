@@ -27,7 +27,7 @@ const MachineSchema = new SimpleSchema({
   },
   location: {
     type: String,
-    defaultValue: 'manoa',
+    defaultValue: 'Manoa',
   },
   owner: {
     type: String,
