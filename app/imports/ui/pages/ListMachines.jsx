@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Header, Loader, Dropdown } from 'semantic-ui-react';
+import { Container, Grid, Card, Header, Loader, Dropdown } from 'semantic-ui-react';
 import { Machines } from '/imports/api/machine/machine';
 import { Reports } from '/imports/api/report/report';
 import Machine from '/imports/ui/components/Machine';
@@ -12,6 +12,7 @@ class ListMachines extends React.Component {
   // locations = this.props.machines.filter(machine => machine.location);
   // locations = [...new Set(this.props.machines.map(machine => machine.location))];
   locations = [{ text: 'Manoa' }, { text: 'freshman dorm' }, { text: 'apartment' }];
+  machineTypes = [{ text: 'All' }, { text: 'Washing machines' }, { text: 'Dryers' }];
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -21,12 +22,16 @@ class ListMachines extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const locations = this.locations;
+    const machineTypes = this.machineTypes;
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>All Machines/Washers/Dryers</Header>
-          <Container style={{ marginTop: '20px', marginBottom: '20px' }}>
-            <Dropdown placeholder='Filter' fluid multiple search selection options={ locations }/>
-          </Container>
+          <Header as="h2" textAlign="center" inverted>Check Availability</Header>
+          <Grid style={{ margin: '20px auto 20px auto' }} columns={2}>
+            <Grid.Column><Dropdown placeholder='Filter by Location' fluid multiple search selection
+                                   options={locations}/></Grid.Column>
+            <Grid.Column><Dropdown placeholder='Filter by Machine Type' fluid multiple search selection
+                                   options={machineTypes}/></Grid.Column>
+          </Grid>
           <Card.Group>
             {this.props.machines.map((machine, index) =>
                 <Machine key={index} machine={machine}
