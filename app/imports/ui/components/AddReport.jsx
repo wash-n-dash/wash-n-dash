@@ -24,17 +24,20 @@ class AddReport extends React.Component {
     Reports.insert({ report, machineNumber, createdAt });
   }
 
-
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     return (
-        <AutoForm ref={(ref) => { this.formRef = ref; }} schema={ReportSchema} onSubmit={this.submit}>
+        <div style={{ paddingLeft: '20px' }}>
+          <AutoForm ref={(ref) => {
+            this.formRef = ref;
+          }} schema={ReportSchema} onSubmit={this.submit}>
             <Container style={{ margin: '20px' }}><TextField label="Add a timestamped report" name='report'/>
-            <SubmitField value='Submit'/>
-            <ErrorsField/>
-            <HiddenField name='machineNumber' value={this.props.machineNumber}/>
-            <HiddenField name='createdAt' value={new Date()}/></Container>
-        </AutoForm>
+              <SubmitField value='Submit'/>
+              <ErrorsField/>
+              <HiddenField name='machineNumber' value={this.props.machineNumber}/>
+              <HiddenField name='createdAt' value={new Date()}/></Container>
+          </AutoForm>
+        </div>
     );
   }
 }

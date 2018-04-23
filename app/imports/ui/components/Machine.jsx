@@ -48,7 +48,7 @@ class Machine extends React.Component {
                 padding: '25px',
                 height: '550px',
               }}>
-                <Modal.Header style={{ color: 'blue' }}>
+                <Modal.Header style={{ color: 'blue', fontSize: '35px' }}>
                   Report an issue for {this.props.machine.machineType} {this.props.machine.machineNumber}
                 </Modal.Header>
                 <AddReport machineNumber={this.props.machine.machineNumber}/>
