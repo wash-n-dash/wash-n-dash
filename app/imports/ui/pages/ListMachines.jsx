@@ -9,7 +9,9 @@ import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Machine documents */
 class ListMachines extends React.Component {
-  locations = this.props.machines.filter(machine => (machine.location === 'Manoa'));
+  // locations = this.props.machines.filter(machine => machine.location);
+  // locations = [...new Set(this.props.machines.map(machine => machine.location))];
+  locations = [{ text: 'Manoa' }, { text: 'freshman dorm' }, { text: 'apartment' }];
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -21,9 +23,9 @@ class ListMachines extends React.Component {
     const locations = this.locations;
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>Washers/Dryers</Header>
+          <Header as="h2" textAlign="center" inverted>All Machines/Washers/Dryers</Header>
           <Container style={{ marginTop: '20px', marginBottom: '20px' }}>
-            <Dropdown placeholder='Location' fluid multiple search selection options={{ locations }}/>
+            <Dropdown placeholder='Filter' fluid multiple search selection options={ locations }/>
           </Container>
           <Card.Group>
             {this.props.machines.map((machine, index) =>
