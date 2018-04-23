@@ -46,13 +46,14 @@ class Machine extends React.Component {
                 position: 'relative',
                 top: '10%',
                 padding: '25px',
+                height: '550px',
               }}>
                 <Modal.Header style={{ color: 'blue' }}>
                   Report an issue for {this.props.machine.machineType} {this.props.machine.machineNumber}
                 </Modal.Header>
                 <AddReport machineNumber={this.props.machine.machineNumber}/>
                 <Header>Reported Issues</Header>
-                <Modal.Content scrolling>
+                <Modal.Content style={{ height: '200px' }} scrolling>
                   <Modal.Description>
                     <Feed>
                       {this.props.reports.map((report, index) => <Report key={index} report={report}/>)}
