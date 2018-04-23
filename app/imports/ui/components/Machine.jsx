@@ -11,7 +11,7 @@ class Machine extends React.Component {
 
   render() {
     return (
-        <Card centered>
+        <Card color='violet' centered>
           <Card.Content>
             <Image floated='left' size='small'
                    src="https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png"/>
@@ -24,10 +24,10 @@ class Machine extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Button>Update</Button>
-          </Card.Content>
-          <Card.Content extra>
-            <Button>Report</Button>
+            <div className='ui two buttons'>
+              <Button basic color='green'>Update</Button>
+              <Button basic color='red'>Report</Button>
+            </div>
           </Card.Content>
           <Card.Content extra>
             <Feed>
