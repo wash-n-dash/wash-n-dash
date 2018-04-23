@@ -46,6 +46,9 @@ class Machine extends React.Component {
                 top: '20%',
                 padding: '10px',
               }}>
+                <Modal.Header>
+                  Report an issue for {this.props.machine.machineType} {this.props.machine.machineNumber}
+                </Modal.Header>
                 <AddReport machineNumber={this.props.machine.machineNumber}/>
                 <Feed>
                   {this.props.reports.map((report, index) => <Report key={index} report={report}/>)}

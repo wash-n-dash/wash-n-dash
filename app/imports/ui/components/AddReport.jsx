@@ -6,7 +6,6 @@ import TextField from 'uniforms-semantic/TextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
-import { Bert } from 'meteor/themeteorchef:bert';
 import PropTypes from 'prop-types';
 
 /** Renders the Page for adding a document. */
@@ -16,24 +15,13 @@ class AddReport extends React.Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
-    this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
-  }
-
-  /** Notify the user of the results of the submit. If successful, clear the form. */
-  insertCallback(error) {
-    if (error) {
-      Bert.alert({ type: 'danger', message: `Add report failed: ${error.message}` });
-    } else {
-      Bert.alert({ type: 'success', message: 'Add report succeeded' });
-      this.formRef.reset();
-    }
   }
 
   /** On submit, insert the data. */
   submit(data) {
     const { report, machineNumber, createdAt } = data;
-    Reports.insert({ report, machineNumber, createdAt }, this.insertCallback);
+    Reports.insert({ report, machineNumber, createdAt });
   }
 
 
