@@ -31,7 +31,7 @@ class Landing extends React.Component {
             </div>
           </div>
 
-          <div style={{ height: '300px', paddingTop: '120px' }}>
+          <div className='darkBlue-background' style={{ height: '300px', paddingTop: '120px' }}>
             <Grid centered columns={4}>
 
               <Grid.Column>
@@ -67,7 +67,7 @@ class Landing extends React.Component {
           </div>
 
 
-          <div className='darkBlue-background'>
+          <div>
             <Grid centered stackable container columns={3}>
               <Grid.Column textAlign='center'>
                 <Icon name='users' inverted size='huge'/>
