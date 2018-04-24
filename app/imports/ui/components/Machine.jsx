@@ -23,25 +23,25 @@ class Machine extends React.Component {
     return (
         <Card color='violet' centered>
           <Card.Content>
-            <Image floated='left' size='small'
+            <Image floated='right' size='mini'
                    src='https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png'/>
             <Card.Header>
               {this.props.machine.machineType} &nbsp;
               {this.props.machine.machineNumber}
             </Card.Header>
-            <Card.Description>
+            <Card.Meta>
               Time Remaining: {this.props.machine.timeRemaining}
-            </Card.Description>
+            </Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <div className='ui two buttons'>
               <Popup
                   trigger={<Button positive onClick={() => this.addTime(15)}>Update</Button>}
                   content='Click to add 15 minutes to the time remaining'
-                  position='top right'/>
+                  position='bottom right'/>
               <Popup trigger={<Button negative onClick={this.show}>Report</Button>}
                      content='Click to report an issue with this machine'
-                     position='top left'/>
+                     position='bottom left'/>
 
               <Modal dimmer='blurring' open={open} onClose={this.close} style={{
                 marginLeft: 'auto',
