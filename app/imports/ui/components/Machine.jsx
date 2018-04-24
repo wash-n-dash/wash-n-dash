@@ -12,7 +12,10 @@ class Machine extends React.Component {
   state = { open: false }
   show = () => this.setState({ open: true })
   close = () => this.setState({ open: false })
-  addTime = (time) => (this.props.machine.timeRemaining + time)
+  addTime = (number) => (Machines.update(
+      { _id: this.props.machine._id },
+      { $set: { timeRemaining: this.props.machine.timeRemaining + number } },
+      ))
 
   render() {
     const { open } = this.state;
@@ -33,8 +36,8 @@ class Machine extends React.Component {
           <Card.Content extra>
             <div className='ui two buttons'>
               <Popup
-                  trigger={<Button positive onClick={this.addTime(60)}>Update</Button>}
-                  content='Click to add 60 minutes to the time remaining'
+                  trigger={<Button positive onClick={() => this.addTime(15)}>Update</Button>}
+                  content='Click to add 15 minutes to the time remaining'
                   position='top right'/>
               <Popup trigger={<Button negative onClick={this.show}>Report</Button>}
                      content='Click to report an issue with this machine'
