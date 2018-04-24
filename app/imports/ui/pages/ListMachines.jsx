@@ -31,6 +31,7 @@ class ListMachines extends React.Component {
     let locationFilter = this.state.locationFilter;
 
     return this.props.machines
+      .filter(m => m.enabled === 'enabled')
       .filter(m => typeFilter.length === 0 || (typeFilter.indexOf(m.machineType) !== -1))
       .filter(m => locationFilter.length === 0 || (locationFilter.indexOf(m.location) !== -1));
   }
