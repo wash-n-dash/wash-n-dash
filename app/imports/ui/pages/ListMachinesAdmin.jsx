@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Table, Container, Card, Header, Loader } from 'semantic-ui-react';
+import { Input, Dropdown, Checkbox, Button, Table, Container, Card, Header, Loader } from 'semantic-ui-react';
 import { Machines } from '/imports/api/machine/machine';
 import MachineAdmin from '/imports/ui/components/MachineAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -18,23 +18,40 @@ class ListMachinesAdmin extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center" inverted>List Machines</Header>
-          <Card.Group>
-            {this.props.machines.map((machine, index) => <MachineAdmin key={index} machine={machine}/>)}
-          </Card.Group>
+        <Header as="h2" textAlign="center" inverted>Machines Admin</Header>
         <Table celled>
           <Table.Header>
             <Table.HeaderCell>Machine</Table.HeaderCell>
+            <Table.HeaderCell>Type</Table.HeaderCell>
+            <Table.HeaderCell>Location</Table.HeaderCell>
             <Table.HeaderCell>Status</Table.HeaderCell>
             <Table.HeaderCell>Disable</Table.HeaderCell>
           </Table.Header>
-          <Table.body>
-            <Table.Cell>Cell</Table.Cell>
-            <Table.Cell>Cell</Table.Cell>
-            <Table.Cell>Cell</Table.Cell>
-          </Table.body>
+          <Table.Body>
+              {this.props.machines.map((machine, index) =>
+                <Table.Row positive={machine.enabled === 'enabled'}
+                           negative={machine.enabled === 'disabled'}>
+                  <Table.Cell>{machine.machineNumber}</Table.Cell>
+                  <Table.Cell>
+                    <Dropdown
+                      options={[{text:'washer', value:'washer'}, {text: 'dryer', value: 'dryer'}]}
+                      placeholder='Choose an option'
+                      selection
+                      value={machine.machineType}/>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Input value={machine.location} />
+                  </Table.Cell>
+                  <Table.Cell>{machine.timeRemaining} minutes remaining</Table.Cell>
+                  <Table.Cell>
+                    <Checkbox toggle
+                              checked={machine.enabled === 'enabled'}
+                              label={machine.enabled}/>
+                  </Table.Cell>
+                </Table.Row>)}
+          </Table.Body>
         </Table>
-        </Container>
+      </Container>
     );
   }
 }
@@ -48,7 +65,7 @@ ListMachinesAdmin.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Machine documents.
-  const subscription = Meteor.subscribe('MachinesAdmin');
+  const subscription = Meteor.subscribe('Machines');
   return {
     machines: Machines.find({}).fetch(),
     ready: subscription.ready(),
