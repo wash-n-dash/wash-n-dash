@@ -15,7 +15,7 @@ class Machine extends React.Component {
   addTime = (number) => (Machines.update(
       { _id: this.props.machine._id },
       { $set: { timeRemaining: this.props.machine.timeRemaining + number } },
-      ))
+  ))
 
   render() {
     const { open } = this.state;
@@ -30,8 +30,11 @@ class Machine extends React.Component {
               {this.props.machine.machineNumber}
             </Card.Header>
             <Card.Meta>
-              Time Remaining: {this.props.machine.timeRemaining}
+              Location: {this.props.machine.location}
             </Card.Meta>
+            <Card.Description>
+              Time Remaining: {this.props.machine.timeRemaining}
+            </Card.Description>
           </Card.Content>
           <Card.Content extra>
             <div className='ui two buttons'>
