@@ -12,6 +12,7 @@ class Machine extends React.Component {
   state = { open: false }
   show = () => this.setState({ open: true })
   close = () => this.setState({ open: false })
+  /**WORK ON THIS FUNCTION */
   addTime = (time) => (this.props.machine.timeRemaining + time)
 
   render() {
@@ -33,7 +34,7 @@ class Machine extends React.Component {
           <Card.Content extra>
             <div className='ui two buttons'>
               <Popup
-                  trigger={<Button positive onClick={this.addTime(60)}>Update</Button>}
+                  trigger={<Button positive onClick={() => this.addTime(60000)}>Update</Button>}
                   content='Click to add 60 minutes to the time remaining'
                   position='top right'/>
               <Popup trigger={<Button negative onClick={this.show}>Report</Button>}
