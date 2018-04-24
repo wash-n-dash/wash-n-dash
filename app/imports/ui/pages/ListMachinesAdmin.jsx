@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Input, Dropdown, Checkbox, Button, Table, Container, Card, Header, Loader } from 'semantic-ui-react';
+import { Icon, Input, Dropdown, Checkbox, Button, Table, Container, Card, Header, Loader } from 'semantic-ui-react';
 import { Machines } from '/imports/api/machine/machine';
 import MachineAdmin from '/imports/ui/components/MachineAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -59,9 +59,22 @@ class ListMachinesAdmin extends React.Component {
                       label={machine.enabled}/>
                   </Table.Cell>
                 </Table.Row>)}
-          </Table.Body>
-        </Table>
-      </Container>
+              </Table.Body>
+              <Table.Footer fullWidth>
+                <Table.Row>
+                  <Table.HeaderCell colSpan='5'>
+                    <Button floated='right' icon labelPosition='left' primary size='small'
+                      onClick={(e, d) => Machines.insert({
+                        enabled: 'disabled',
+                        machineNumber: this.props.machines.length + 1,
+                      })}>
+                      <Icon name='user' /> Add Machine
+                    </Button>
+                  </Table.HeaderCell>
+                </Table.Row>
+              </Table.Footer>
+            </Table>
+          </Container>
     );
   }
 }
