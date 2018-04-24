@@ -12,14 +12,23 @@ const MachineSchema = new SimpleSchema({
     allowedValues: ['washer', 'dryer'],
     defaultValue: 'washer',
   },
+  machineNumber: {
+    type: Number,
+    defaultValue: 0,
+  },
   enabled: {
     type: String,
     allowedValues: ['enabled', 'disabled'],
     defaultValue: 'enabled',
   },
-  machineNumber: Number,
-  timeRemaining: Number,
-  //location: String
+  timeRemaining: {
+    type: Number,
+    defaultValue: 0,
+  },
+  location: {
+    type: String,
+    defaultValue: 'Manoa',
+  },
   owner: {
     type: String,
     defaultValue: 'admin@foo.com',

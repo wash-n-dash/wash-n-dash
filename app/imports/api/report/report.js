@@ -7,9 +7,8 @@ const Reports = new Mongo.Collection('Reports');
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const ReportSchema = new SimpleSchema({
-  machineNumber: String,
-  reportedBy: String,
-  message: String,
+  report: String,
+  machineNumber: Number,
   createdAt: Date,
 }, { tracker: Tracker });
 

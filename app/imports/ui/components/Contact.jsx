@@ -26,6 +26,7 @@ class Contact extends React.Component {
   onClick() {
     Contacts.remove(this.props.contact._id, this.deleteCallback);
   }
+
   render() {
     return (
         <Card centered>
