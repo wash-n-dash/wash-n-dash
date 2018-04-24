@@ -37,16 +37,26 @@ class ListMachinesAdmin extends React.Component {
                       options={[{text:'washer', value:'washer'}, {text: 'dryer', value: 'dryer'}]}
                       placeholder='Choose an option'
                       selection
+                      onChange={(e, d)=>Machines.update(
+                        { _id: machine._id },
+                        { $set: { machineType: d.value } })}
                       value={machine.machineType}/>
                   </Table.Cell>
                   <Table.Cell>
-                    <Input value={machine.location} />
+                    <Input 
+                      defaultValue={machine.location}
+                      onChange={(e, d)=>Machines.update(
+                        { _id: machine._id },
+                        { $set: { location: d.value } })} />
                   </Table.Cell>
                   <Table.Cell>{machine.timeRemaining} minutes remaining</Table.Cell>
                   <Table.Cell>
                     <Checkbox toggle
-                              checked={machine.enabled === 'enabled'}
-                              label={machine.enabled}/>
+                      defaultChecked={machine.enabled === 'enabled'}
+                      onChange={(e, d)=>Machines.update(
+                        { _id: machine._id },
+                        { $set: { enabled: d.checked ? 'enabled' : 'disabled' } })}
+                      label={machine.enabled}/>
                   </Table.Cell>
                 </Table.Row>)}
           </Table.Body>
