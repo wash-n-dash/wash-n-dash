@@ -9,9 +9,9 @@ import { Roles } from 'meteor/alanning:roles';
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
-    const menuStyle = { marginBottom: '30px' };
+    const menuStyle = { marginBottom: '30px', backgroundColor: '#2185D0' };
     return (
-        <Menu style={menuStyle} fixed='top' borderless inverted color='blue'>
+        <Menu style={menuStyle} fixed='top' borderless inverted>
           <Menu.Item className='crop' as={NavLink} activeClassName="" exact to="/">
             <Image size='small' src='images/washndashlogo.png'/>
           </Menu.Item>
