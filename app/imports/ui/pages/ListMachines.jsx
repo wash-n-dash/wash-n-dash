@@ -9,29 +9,55 @@ import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Machine documents */
 class ListMachines extends React.Component {
-  locations = [{ text: 'Manoa', value: 'Manoa' }, { text: 'dorms', value: 'dorms' }];
-  machineTypes = [{ text: 'Washing machines', value: 'Washing machines' }, { text: 'Dryers', value: 'Dryers' }];
+  machineTypes = [{ text: 'Washing machines', value: 'washer' }, { text: 'Dryers', value: 'dryer' }];
+
+  constructor(props) {
+    super(props);
+    this.state = { typeFilter: [], locationFilter: [] };
+  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader>Getting data</Loader>;
   }
 
+  machineLocations() {
+    return _.uniq(this.props.machines.map((m, i) => m.location))
+            .map(function(l, i) { return { text: l, value: l }; });
+  }
+
+  filteredMachines() {
+    let typeFilter = this.state.typeFilter;
+    let locationFilter = this.state.locationFilter;
+
+    return this.props.machines
+      .filter(m => m.enabled === 'enabled')
+      .filter(m => typeFilter.length === 0 || (typeFilter.indexOf(m.machineType) !== -1))
+      .filter(m => locationFilter.length === 0 || (locationFilter.indexOf(m.location) !== -1));
+  }
+
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const locations = this.locations;
     const machineTypes = this.machineTypes;
+
     return (
         <Container>
           <Header as="h2" textAlign="center" inverted>Check Availability</Header>
           <Grid style={{ margin: '20px auto 20px auto' }} columns={2}>
-            <Grid.Column><Dropdown placeholder='Filter by Location' fluid multiple search selection
-                                   options={locations}/></Grid.Column>
-            <Grid.Column><Dropdown placeholder='Filter by Machine Type' fluid multiple search selection
-                                   options={machineTypes}/></Grid.Column>
+            <Grid.Column>
+              <Dropdown placeholder='Filter by Location' fluid multiple search selection
+                        options={this.machineLocations()}
+                        onChange={(e, d) => this.setState({locationFilter: d.value})}/>
+              </Grid.Column>
+              <Grid.Column>
+                <Dropdown placeholder='Filter by Machine Type' fluid multiple search selection
+                  options={machineTypes}
+                  onChange={(e, d) => this.setState({typeFilter: d.value})}/>
+              </Grid.Column>
           </Grid>
           <Card.Group>
-            {this.props.machines.map((machine, index) =>
+            {this.filteredMachines().map((machine, index) =>
                 <Machine key={index} machine={machine}
                          reports={this.props.reports.filter(report => (report.machineNumber === machine.machineNumber))}
                 />)}

@@ -16,7 +16,7 @@ class Landing extends React.Component {
   /* Render the page once total number of available machines have been received. */
   renderPage() {
     return (
-        <div className='wash-landing-background'>
+        <div className='wash-landing-background' style={{ marginTop: '-10px' }}>
           <div style={{ marginBottom: '100px' }}>
             <Image src='images/washndashlogo.png' size='huge' centered
                    style={{ position: 'relative', top: '80px', left: '100px' }}/>

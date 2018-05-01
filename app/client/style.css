@@ -3,6 +3,11 @@
   background-size: cover;
 }
 
+.machine-background {
+  background: url('/images/dropBackground.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
 .darkBlue-background {
   background-color: #032661;
   padding-bottom: 30px;

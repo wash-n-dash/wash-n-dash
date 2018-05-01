@@ -43,7 +43,7 @@ class AddReport extends React.Component {
 }
 
 AddReport.propTypes = {
-  machineNumber: PropTypes.string.isRequired,
+  machineNumber: PropTypes.number.isRequired,
 };
 
 export default AddReport;
