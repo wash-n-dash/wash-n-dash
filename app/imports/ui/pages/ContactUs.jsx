@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Grid } from 'semantic-ui-react';
+import { Container, Header, Grid, Image } from 'semantic-ui-react';
 
 /** Render a Not Found page if the user enters a URL that doesn't match any route. */
 class ContactUs extends React.Component {
@@ -10,21 +10,35 @@ class ContactUs extends React.Component {
             Contact Us
           </Header>
           <br/>
-          <Grid textAlign='center' columns={4}>
+          <Grid textAlign='left' columns={4}>
 
             <Grid.Row>
               <Grid.Column>
-                <a style={{ color: 'white' }} href="https://olivia-murray.github.io/">Olivia
+                <Image src='images/user.png' size='tiny' circular bordered/>
+              </Grid.Column>
+              <Grid.Column>
+                <Image src='images/user.png' size='tiny' circular bordered/>
+              </Grid.Column>
+              <Grid.Column>
+                <Image src='images/riley.jpg' size='tiny' circular bordered/>
+              </Grid.Column>
+              <Grid.Column>
+                <Image src='images/user.png' size='tiny' circular bordered/>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <a style={{ color: 'white', fontSize: '20px' }} href="https://olivia-murray.github.io/">Olivia
                   Murray</a>
               </Grid.Column>
               <Grid.Column>
-                <a style={{ color: 'white' }} href="">David Badke</a>
+                <a style={{ color: 'white', fontSize: '20px' }} href="">David Badke</a>
               </Grid.Column>
               <Grid.Column>
-                <a style={{ color: 'white' }} href="https://rcammack.github.io/">Riley Cammack</a>
+                <a style={{ color: 'white', fontSize: '20px' }} href="https://rcammack.github.io/">Riley Cammack</a>
               </Grid.Column>
               <Grid.Column>
-                <a style={{ color: 'white' }} href="https://jpham79.github.io/">Justin Pham</a>
+                <a style={{ color: 'white', fontSize: '20px' }} href="https://jpham79.github.io/">Justin Pham</a>
               </Grid.Column>
             </Grid.Row>
 
@@ -44,6 +58,7 @@ class ContactUs extends React.Component {
             </Grid.Row>
 
           </Grid>
+          <br/>
         </Container>
     );
   }
