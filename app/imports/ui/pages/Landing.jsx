@@ -17,21 +17,7 @@ class Landing extends React.Component {
   renderPage() {
     return (
         <div className='wash-landing-background' style={{ marginTop: '-10px' }}>
-          <div style={{ marginBottom: '100px' }}>
-            <Image src='images/washndashlogo.png' size='huge' centered
-                   style={{ position: 'relative', top: '80px', left: '100px' }}/>
-
-            <div id="machineLoader" style={{ position: 'relative', top: '-70px', left: '220px' }}>
-              <div className="knob"></div>
-              <div className="knob" style={{ marginLeft: '-45px' }}></div>
-              <div className="rectangle"></div>
-              <br/><br/>
-              <hr/>
-              <div className="loader"></div>
-            </div>
-          </div>
-
-          <div className='darkBlue-background' style={{ height: '300px', paddingTop: '120px' }}>
+          <div className='darkBlue-background'>
             <Grid centered columns={4}>
 
               <Grid.Column>
@@ -66,6 +52,20 @@ class Landing extends React.Component {
             </Grid>
           </div>
 
+
+          <div style={{ marginBottom: '-2vh' }}>
+            <Image src='images/washndashlogo.png' size='huge' centered
+                   style={{ position: 'relative', left: '100px' }}/>
+
+            <div id="machineLoader" style={{ position: 'relative', top: '-25vh', left: '220px' }}>
+              <div className="knob"></div>
+              <div className="knob" style={{ marginLeft: '-45px' }}></div>
+              <div className="rectangle"></div>
+              <br/><br/>
+              <hr/>
+              <div className="loader"></div>
+            </div>
+          </div>
 
           <div>
             <Grid centered stackable container columns={3}>
