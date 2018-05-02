@@ -16,7 +16,7 @@
     },
     {
       "machineType": "Dryer",
-      "machineNumber": 3,
+      "machineNumber": 2,
       "enabled": "enabled",
       "timeRemaining": 0,
       "location": "freshman dorms"
@@ -37,12 +37,6 @@
     {
       "email": "john@foo.com",
       "password": "changeme"
-    }
-  ],
-  "defaultReports": [
-    {
-      "report": "broken",
-      "machineNumber": 1
     }
   ]
 }

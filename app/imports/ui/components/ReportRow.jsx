@@ -52,7 +52,7 @@ class ReportRow extends React.Component {
             </Modal.Actions>
           </Modal>
         </Table.Cell>
-        <Table.Cell>{this.props.report.machineNumber}</Table.Cell>
+        <Table.Cell>{this.props.report.machineId}</Table.Cell>
         <Table.Cell>{this.props.report.report}</Table.Cell>
       </Table.Row>
     );

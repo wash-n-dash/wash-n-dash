@@ -59,7 +59,7 @@ class ListMachines extends React.Component {
           <Card.Group>
             {this.filteredMachines().map((machine, index) =>
                 <Machine key={index} machine={machine}
-                         reports={this.props.reports.filter(report => (report.machineNumber === machine.machineNumber))}
+                         reports={this.props.reports.filter(report => (report.machineId === machine._id))}
                 />)}
           </Card.Group>
         </Container>
