@@ -14,13 +14,13 @@ class ContactUs extends React.Component {
 
             <Grid.Row>
               <Grid.Column>
-                <Image src='images/user.png' size='tiny' circular bordered/>
-              </Grid.Column>
-              <Grid.Column>
-                <Image src='images/user.png' size='tiny' circular bordered/>
+                <Image src='images/olivia_pic.jpg' size='tiny' circular bordered/>
               </Grid.Column>
               <Grid.Column>
                 <Image src='images/riley.jpg' size='tiny' circular bordered/>
+              </Grid.Column>
+              <Grid.Column>
+                <Image src='images/justin_pic.jpg' size='tiny' circular bordered/>
               </Grid.Column>
               <Grid.Column>
                 <Image src='images/user.png' size='tiny' circular bordered/>
@@ -32,13 +32,13 @@ class ContactUs extends React.Component {
                   Murray</a>
               </Grid.Column>
               <Grid.Column>
-                <a style={{ color: 'white', fontSize: '20px' }} href="">David Badke</a>
-              </Grid.Column>
-              <Grid.Column>
                 <a style={{ color: 'white', fontSize: '20px' }} href="https://rcammack.github.io/">Riley Cammack</a>
               </Grid.Column>
               <Grid.Column>
                 <a style={{ color: 'white', fontSize: '20px' }} href="https://jpham79.github.io/">Justin Pham</a>
+              </Grid.Column>
+              <Grid.Column>
+                <a style={{ color: 'white', fontSize: '20px' }} href="">David Badke</a>
               </Grid.Column>
             </Grid.Row>
 
@@ -47,13 +47,13 @@ class ContactUs extends React.Component {
                 email: omurray4@hawaii.edu
               </Grid.Column>
               <Grid.Column>
-                email: ...@hawaii.edu
-              </Grid.Column>
-              <Grid.Column>
                 email: rcammack@hawaii.edu
               </Grid.Column>
               <Grid.Column>
                 email: jpham79@hawaii.edu
+              </Grid.Column>
+              <Grid.Column>
+                email: ...@hawaii.edu
               </Grid.Column>
             </Grid.Row>
 
