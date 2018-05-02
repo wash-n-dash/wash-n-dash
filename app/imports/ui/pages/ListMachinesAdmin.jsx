@@ -34,7 +34,7 @@ class ListMachinesAdmin extends React.Component {
                   <Table.Cell>{machine.machineNumber}</Table.Cell>
                   <Table.Cell>
                     <Dropdown
-                      options={[{text:'washer', value:'washer'}, {text: 'dryer', value: 'dryer'}]}
+                      options={[{text:'Washer', value:'Washer'}, {text: 'Dryer', value: 'Dryer'}]}
                       placeholder='Choose an option'
                       selection
                       onChange={(e, d)=>Machines.update(

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Machine documents */
 class ListMachines extends React.Component {
-  machineTypes = [{ text: 'Washing machines', value: 'washer' }, { text: 'Dryers', value: 'dryer' }];
+  machineTypes = [{ text: 'Washing machines', value: 'Washer' }, { text: 'Dryers', value: 'Dryer' }];
 
   constructor(props) {
     super(props);
