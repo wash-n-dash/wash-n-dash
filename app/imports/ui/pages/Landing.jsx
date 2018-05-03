@@ -68,7 +68,7 @@ class Landing extends React.Component {
           </div>
           </div>
           <div>
-            <Grid centered stackable container columns={3}>
+            <Grid centered stackable container columns={3} style={{ marginTop: '-10vh' }}>
               <Grid.Column textAlign='center'>
                 <Icon name='users' inverted size='huge'/>
                 <Header as='h1' inverted>UH Community</Header>
