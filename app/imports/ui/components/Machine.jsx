@@ -21,7 +21,6 @@ class Machine extends React.Component {
 
   render() {
     const { open } = this.state;
-
     return (
         <Card color='violet' centered>
           <Card.Content>
@@ -87,7 +86,7 @@ Machine.propTypes = {
 };
 
 const MachineContainer = withTracker(() => ({
-  anyReports: !Reports._id,
+  anyReports: !!Reports.find(),
 }))(Machine);
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
