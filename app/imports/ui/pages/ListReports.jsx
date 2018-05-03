@@ -22,6 +22,7 @@ class ListReports extends React.Component {
         <Table celled>
           <Table.Header>
             <Table.HeaderCell width={2}>Machine</Table.HeaderCell>
+            <Table.HeaderCell width={2}>Location</Table.HeaderCell>
             <Table.HeaderCell>Report</Table.HeaderCell>
             <Table.HeaderCell width={2} align='right'>Delete Report</Table.HeaderCell>
           </Table.Header>

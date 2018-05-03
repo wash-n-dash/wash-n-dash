@@ -34,11 +34,14 @@ class ReportRow extends React.Component {
   render() {
     return (
         <Table.Row>
-          <Table.Cell>{this.props.report.machineId}</Table.Cell>
-          <Table.Cell>{this.props.report.report}</Table.Cell>
+          <Table.Cell width={2}>type & number</Table.Cell>
+          <Table.Cell width={2}>location</Table.Cell>
+          <Table.Cell>{this.props.report.createdAt.toLocaleDateString('en-US')} &nbsp;-
+            {this.props.report.report}
+          </Table.Cell>
           <Table.Cell textAlign={"center"}>
             <Modal trigger={
-              <Button negative onClick={() => this.setState({ open: true })}>Delete</Button>
+              <Button negative align='right' onClick={() => this.setState({ open: true })}>Delete</Button>
             }
                    open={this.state.open}
                    style={{
