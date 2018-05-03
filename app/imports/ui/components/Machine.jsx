@@ -24,8 +24,10 @@ class Machine extends React.Component {
     return (
         <Card color='violet' centered>
           <Card.Content>
-            <Image floated='right' size='mini'
-                   src='https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png'/>
+            {this.props.machine.timeRemaining === 0 ?
+                (<Image floated='right' size='mini' src='images/greenWasher.png'/>)
+                : <Image floated='right' size='mini' src='images/washerIcon.png'/>}
+
             <Card.Header>
               {this.props.machine.machineType} &nbsp;
               {this.props.machine.machineNumber} &nbsp;
