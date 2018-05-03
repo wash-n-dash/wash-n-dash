@@ -1,28 +1,28 @@
 {
   "defaultMachines": [
     {
-      "machineType": "washer",
+      "machineType": "Washer",
       "machineNumber": 1,
       "enabled": "enabled",
       "timeRemaining": 20,
       "location": "freshman dorms"
     },
     {
-      "machineType": "washer",
+      "machineType": "Washer",
       "machineNumber": 2,
       "enabled": "enabled",
       "timeRemaining": 0,
       "location": "apartments"
     },
     {
-      "machineType": "dryer",
-      "machineNumber": 3,
+      "machineType": "Dryer",
+      "machineNumber": 2,
       "enabled": "enabled",
       "timeRemaining": 0,
       "location": "freshman dorms"
     },
     {
-      "machineType": "dryer",
+      "machineType": "Dryer",
       "machineNumber": 4,
       "enabled": "disabled",
       "timeRemaining": 60
@@ -37,12 +37,6 @@
     {
       "email": "john@foo.com",
       "password": "changeme"
-    }
-  ],
-  "defaultReports": [
-    {
-      "report": "broken",
-      "machineNumber": 1
     }
   ],
   "galaxy.meteor.com": {

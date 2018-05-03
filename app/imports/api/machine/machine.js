@@ -9,8 +9,8 @@ const Machines = new Mongo.Collection('Machines');
 const MachineSchema = new SimpleSchema({
   machineType: {
     type: String,
-    allowedValues: ['washer', 'dryer'],
-    defaultValue: 'washer',
+    allowedValues: ['Washer', 'Dryer'],
+    defaultValue: 'Washer',
   },
   machineNumber: {
     type: Number,

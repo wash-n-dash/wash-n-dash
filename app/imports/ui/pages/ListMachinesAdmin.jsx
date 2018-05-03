@@ -18,63 +18,63 @@ class ListMachinesAdmin extends React.Component {
   renderPage() {
     return (
         <Container>
-        <Header as="h2" textAlign="center" inverted>Machines Admin</Header>
-        <Table celled>
-          <Table.Header>
-            <Table.HeaderCell>Machine</Table.HeaderCell>
-            <Table.HeaderCell>Type</Table.HeaderCell>
-            <Table.HeaderCell>Location</Table.HeaderCell>
-            <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Disable</Table.HeaderCell>
-          </Table.Header>
-          <Table.Body>
+          <Header as="h2" textAlign="center" inverted>Machines Admin</Header>
+          <Table celled>
+            <Table.Header>
+              <Table.HeaderCell>Machine</Table.HeaderCell>
+              <Table.HeaderCell>Type</Table.HeaderCell>
+              <Table.HeaderCell>Location</Table.HeaderCell>
+              <Table.HeaderCell>Status</Table.HeaderCell>
+              <Table.HeaderCell>Disable</Table.HeaderCell>
+            </Table.Header>
+            <Table.Body>
               {this.props.machines.map((machine, index) =>
-                <Table.Row positive={machine.enabled === 'enabled'}
-                           negative={machine.enabled === 'disabled'}>
-                  <Table.Cell>{machine.machineNumber}</Table.Cell>
-                  <Table.Cell>
-                    <Dropdown
-                      options={[{text:'washer', value:'washer'}, {text: 'dryer', value: 'dryer'}]}
-                      placeholder='Choose an option'
-                      selection
-                      onChange={(e, d)=>Machines.update(
-                        { _id: machine._id },
-                        { $set: { machineType: d.value } })}
-                      value={machine.machineType}/>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Input 
-                      defaultValue={machine.location}
-                      onChange={(e, d)=>Machines.update(
-                        { _id: machine._id },
-                        { $set: { location: d.value } })} />
-                  </Table.Cell>
-                  <Table.Cell>{machine.timeRemaining} minutes remaining</Table.Cell>
-                  <Table.Cell>
-                    <Checkbox toggle
-                      defaultChecked={machine.enabled === 'enabled'}
-                      onChange={(e, d)=>Machines.update(
-                        { _id: machine._id },
-                        { $set: { enabled: d.checked ? 'enabled' : 'disabled' } })}
-                      label={machine.enabled}/>
-                  </Table.Cell>
-                </Table.Row>)}
-              </Table.Body>
-              <Table.Footer fullWidth>
-                <Table.Row>
-                  <Table.HeaderCell colSpan='5'>
-                    <Button floated='right' icon labelPosition='left' primary size='small'
-                      onClick={(e, d) => Machines.insert({
-                        enabled: 'disabled',
-                        machineNumber: this.props.machines.length + 1,
-                      })}>
-                      <Icon name='user' /> Add Machine
-                    </Button>
-                  </Table.HeaderCell>
-                </Table.Row>
-              </Table.Footer>
-            </Table>
-          </Container>
+                  <Table.Row positive={machine.enabled === 'enabled'}
+                             negative={machine.enabled === 'disabled'}>
+                    <Table.Cell>{machine.machineNumber}</Table.Cell>
+                    <Table.Cell>
+                      <Dropdown
+                          options={[{ text: 'Washer', value: 'Washer' }, { text: 'Dryer', value: 'Dryer' }]}
+                          placeholder='Choose an option'
+                          selection
+                          onChange={(e, d) => Machines.update(
+                              { _id: machine._id },
+                              { $set: { machineType: d.value } })}
+                          value={machine.machineType}/>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Input
+                          defaultValue={machine.location}
+                          onChange={(e, d) => Machines.update(
+                              { _id: machine._id },
+                              { $set: { location: d.value } })}/>
+                    </Table.Cell>
+                    <Table.Cell>{machine.timeRemaining} minutes remaining</Table.Cell>
+                    <Table.Cell>
+                      <Checkbox toggle
+                                defaultChecked={machine.enabled === 'enabled'}
+                                onChange={(e, d) => Machines.update(
+                                    { _id: machine._id },
+                                    { $set: { enabled: d.checked ? 'enabled' : 'disabled' } })}
+                                label={machine.enabled}/>
+                    </Table.Cell>
+                  </Table.Row>)}
+            </Table.Body>
+            <Table.Footer fullWidth>
+              <Table.Row>
+                <Table.HeaderCell colSpan='5'>
+                  <Button floated='right' icon labelPosition='left' primary size='small'
+                          onClick={(e, d) => Machines.insert({
+                            enabled: 'disabled',
+                            machineNumber: this.props.machines.length + 1,
+                          })}>
+                    <Icon name='user'/> Add Machine
+                  </Button>
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Footer>
+          </Table>
+        </Container>
     );
   }
 }
