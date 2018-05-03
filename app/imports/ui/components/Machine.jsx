@@ -1,10 +1,12 @@
 import React from 'react';
-import { Header, Card, Image, Button, Feed, Popup, Modal } from 'semantic-ui-react';
+import { Header, Card, Image, Button, Feed, Popup, Modal, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import Report from '/imports/ui/components/Report';
+import { withTracker } from 'meteor/react-meteor-data';
 import AddReport from '/imports/ui/components/AddReport';
 import { Machines } from '/imports/api/machine/machine';
+import { Reports } from '/imports/api/report/report';
 
 /** renders a single machine */
 class Machine extends React.Component {
@@ -27,7 +29,8 @@ class Machine extends React.Component {
                    src='https://cdn3.iconfinder.com/data/icons/clothes-products/512/washer-512.png'/>
             <Card.Header>
               {this.props.machine.machineType} &nbsp;
-              {this.props.machine.machineNumber}
+              {this.props.machine.machineNumber} &nbsp;
+              {this.props.anyReports ? (<Icon name='warning circle' color='orange'/>) : ''}
             </Card.Header>
             <Card.Meta>
               Location: {this.props.machine.location}
@@ -60,7 +63,7 @@ class Machine extends React.Component {
                   Report an issue for {this.props.machine.machineType} {this.props.machine.machineNumber}
                 </Modal.Header>
                 <AddReport machineNumber={this.props.machine.machineNumber}/>
-                <Header>Reported Issues</Header>
+                <Header><Icon name='warning circle' color='orange'/>Reported Issues</Header>
                 <Modal.Content style={{ height: '200px' }} scrolling>
                   <Modal.Description>
                     <Feed>
@@ -80,7 +83,12 @@ class Machine extends React.Component {
 Machine.propTypes = {
   machine: PropTypes.object.isRequired,
   reports: PropTypes.array.isRequired,
+  anyReports: PropTypes.bool,
 };
 
+const MachineContainer = withTracker(() => ({
+  anyReports: !Reports._id,
+}))(Machine);
+
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Machine);
+export default withRouter(MachineContainer);
