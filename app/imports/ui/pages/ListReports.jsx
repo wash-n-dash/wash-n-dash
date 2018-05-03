@@ -21,13 +21,22 @@ class ListReports extends React.Component {
         <Header as="h2" textAlign="center" inverted>Reports</Header>
         <Table celled>
           <Table.Header>
-            <Table.HeaderCell width={2}/>
             <Table.HeaderCell width={2}>Machine</Table.HeaderCell>
             <Table.HeaderCell>Report</Table.HeaderCell>
+            <Table.HeaderCell width={2} align='right'>Delete Report</Table.HeaderCell>
           </Table.Header>
           <Table.Body>
             {this.props.reports.map(r => <ReportRow report={r} />)}
           </Table.Body>
+          <Table.Footer fullWidth>
+            <Table.Row>
+              <Table.HeaderCell colSpan='4'>
+                <Button negative floated='right' size='small'>
+                  <Icon name='remove'/>Delete All
+                </Button>
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Footer>
         </Table>
       </Container>
     );
