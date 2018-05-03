@@ -27,8 +27,8 @@ class ListMachines extends React.Component {
   }
 
   filteredMachines() {
-    let typeFilter = this.state.typeFilter;
-    let locationFilter = this.state.locationFilter;
+    const typeFilter = this.state.typeFilter;
+    const locationFilter = this.state.locationFilter;
 
     return this.props.machines
       .filter(m => m.enabled === 'enabled')
@@ -38,7 +38,6 @@ class ListMachines extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const locations = this.locations;
     const machineTypes = this.machineTypes;
 
     return (

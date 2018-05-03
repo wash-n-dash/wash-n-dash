@@ -1,21 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import {
-  Modal,
-  Icon,
-  Input,
-  Dropdown,
-  Checkbox,
-  Button,
-  Table,
-  Container,
-  Card,
-  Header,
-  Loader
-} from 'semantic-ui-react';
+import { Modal, Icon, Button, Table, Header } from 'semantic-ui-react';
 import { Reports } from '/imports/api/report/report';
+import { Machines } from '/imports/api/machine/machine';
 import { withTracker } from 'meteor/react-meteor-data';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
 import PropTypes from 'prop-types';
 
@@ -32,6 +21,8 @@ class ReportRow extends React.Component {
   }
 
   render() {
+    const machineId = this.props.report.machineId;
+    /* get the machine type, number, and location of the machine with the same machineId as each report */
     return (
         <Table.Row>
           <Table.Cell width={2}>type & number</Table.Cell>
@@ -39,7 +30,7 @@ class ReportRow extends React.Component {
           <Table.Cell>{this.props.report.createdAt.toLocaleDateString('en-US')} &nbsp;-
             {this.props.report.report}
           </Table.Cell>
-          <Table.Cell textAlign={"center"}>
+          <Table.Cell textAlign='center'>
             <Modal trigger={
               <Button negative align='right' onClick={() => this.setState({ open: true })}>Delete</Button>
             }
@@ -53,10 +44,7 @@ class ReportRow extends React.Component {
                      top: '10%',
                      padding: '25px',
                    }}>
-              <Header>Delete Report</Header>
-              <Modal.Content>
-                <p>Really delete report?</p>
-              </Modal.Content>
+              <Header>Are you sure you want to delete this report?</Header>
               <Modal.Actions>
                 <Button negative
                         onClick={() => this.onDelete()}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Modal, Icon, Input, Dropdown, Checkbox, Button, Table, Container, Card, Header, Loader } from 'semantic-ui-react';
+import { Icon, Button, Table, Container, Header, Loader } from 'semantic-ui-react';
 import { Reports } from '/imports/api/report/report';
 import { withTracker } from 'meteor/react-meteor-data';
 import ReportRow from '/imports/ui/components/ReportRow';
@@ -27,7 +27,7 @@ class ListReports extends React.Component {
             <Table.HeaderCell width={2} align='right'>Delete Report</Table.HeaderCell>
           </Table.Header>
           <Table.Body>
-            {this.props.reports.map(r => <ReportRow report={r} />)}
+            {this.props.reports.map((r, index) => <ReportRow key={index} report={r} />)}
           </Table.Body>
           <Table.Footer fullWidth>
             <Table.Row>
