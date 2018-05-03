@@ -52,12 +52,12 @@ class Landing extends React.Component {
             </Grid>
           </div>
 
-
+          <div>
           <div style={{ marginBottom: '-2vh' }}>
             <Image src='images/washndashlogo.png' size='huge' centered
                    style={{ position: 'relative', left: '100px' }}/>
 
-            <div id="machineLoader" style={{ position: 'relative', top: '-25vh', left: '220px' }}>
+            <div id="machineLoader" style={{ position: 'relative', top: '-19vh', left: '30vh' }}>
               <div className="knob"></div>
               <div className="knob" style={{ marginLeft: '-45px' }}></div>
               <div className="rectangle"></div>
@@ -66,7 +66,7 @@ class Landing extends React.Component {
               <div className="loader"></div>
             </div>
           </div>
-
+          </div>
           <div>
             <Grid centered stackable container columns={3}>
               <Grid.Column textAlign='center'>
