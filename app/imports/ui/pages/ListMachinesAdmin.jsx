@@ -5,6 +5,7 @@ import { Machines } from '/imports/api/machine/machine';
 import MachineAdmin from '/imports/ui/components/MachineAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import DeleteMachine from '/imports/ui/components/DeleteMachine';
+import MachineSecret from '/imports/ui/components/MachineSecret';
 import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -23,17 +24,26 @@ class ListMachinesAdmin extends React.Component {
           <Table celled>
             <Table.Header>
               <Table.HeaderCell>Machine</Table.HeaderCell>
+              <Table.HeaderCell>Number</Table.HeaderCell>
               <Table.HeaderCell>Type</Table.HeaderCell>
               <Table.HeaderCell>Location</Table.HeaderCell>
               <Table.HeaderCell>Status</Table.HeaderCell>
               <Table.HeaderCell>Disable</Table.HeaderCell>
+              <Table.HeaderCell>Secret</Table.HeaderCell>
               <Table.HeaderCell>Delete</Table.HeaderCell>
             </Table.Header>
             <Table.Body>
               {this.props.machines.map((machine, index) =>
                   <Table.Row positive={machine.enabled === 'enabled'}
                              negative={machine.enabled === 'disabled'}>
-                    <Table.Cell>{machine.machineNumber}</Table.Cell>
+                    <Table.Cell>{machine._id}</Table.Cell>
+                    <Table.Cell>
+                      <Input
+                        value={machine.machineNumber}
+                        onChange={(e, d) => Machines.update(
+                          { _id: machine._id },
+                          { $set: { machineNumber: d.value } })} />
+                    </Table.Cell>
                     <Table.Cell>
                       <Dropdown
                           options={[{ text: 'Washer', value: 'Washer' }, { text: 'Dryer', value: 'Dryer' }]}
@@ -60,12 +70,13 @@ class ListMachinesAdmin extends React.Component {
                                     { $set: { enabled: d.checked ? 'enabled' : 'disabled' } })}
                                 label={machine.enabled}/>
                     </Table.Cell>
-                      <DeleteMachine key={index} machine={machine}/>
+                    <MachineSecret machine={machine} />
+                    <DeleteMachine key={index} machine={machine}/>
                   </Table.Row>)}
             </Table.Body>
             <Table.Footer fullWidth>
               <Table.Row>
-                <Table.HeaderCell colSpan='5'>
+                <Table.HeaderCell colSpan='8'>
                   <Button floated='right' icon labelPosition='left' primary size='small'
                           onClick={(e, d) => Machines.insert({
                             enabled: 'disabled',

@@ -34,6 +34,10 @@ const MachineSchema = new SimpleSchema({
     type: String,
     defaultValue: 'admin@foo.com',
   },
+  secret: {
+    type: String,
+    defaultValue: '',
+  }
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

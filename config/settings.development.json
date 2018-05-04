@@ -5,27 +5,32 @@
       "machineNumber": 1,
       "enabled": "enabled",
       "timeRemaining": 20,
-      "location": "freshman dorms"
+      "location": "freshman dorms",
+      "secret": "$2b$10$lXWY5ixDrGiLic2O5BKPA.cicxwVhidgkkyNc9ynJLVSEvKWtoRfy"
     },
     {
       "machineType": "Washer",
       "machineNumber": 2,
       "enabled": "enabled",
       "timeRemaining": 0,
-      "location": "apartments"
+      "location": "apartments",
+      "secret": "$2b$10$lXWY5ixDrGiLic2O5BKPA.cicxwVhidgkkyNc9ynJLVSEvKWtoRfy"
     },
     {
       "machineType": "Dryer",
       "machineNumber": 2,
       "enabled": "enabled",
       "timeRemaining": 0,
-      "location": "freshman dorms"
+      "location": "freshman dorms",
+      "secret": "$2b$10$lXWY5ixDrGiLic2O5BKPA.cicxwVhidgkkyNc9ynJLVSEvKWtoRfy"
     },
     {
       "machineType": "Dryer",
       "machineNumber": 4,
       "enabled": "disabled",
-      "timeRemaining": 60
+      "timeRemaining": 60,
+      "location": "freshman dorms",
+      "secret": "$2b$10$lXWY5ixDrGiLic2O5BKPA.cicxwVhidgkkyNc9ynJLVSEvKWtoRfy"
     }
   ],
   "defaultAccounts": [
