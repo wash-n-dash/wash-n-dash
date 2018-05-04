@@ -41,10 +41,10 @@ class Landing extends React.Component {
               <Grid.Column floated='right' style={{ fontSize: '50px', marginTop: '-25px' }}>
                 <div className='slideshow'>
                   <span><Header inverted>
-                    {this.props.machines.filter(m => (m.machineType === 'washer') && (m.enabled === 'enabled') && (m.timeRemaining === 0)).length}
+                    {this.props.machines.filter(m => (m.machineType === 'Washer') && (m.enabled === 'enabled') && (m.timeRemaining === 0)).length}
                   </Header></span>
                   <span><Header inverted>
-                    {this.props.machines.filter(m => (m.machineType === 'dryer') && (m.enabled === 'enabled') && (m.timeRemaining === 0)).length}
+                    {this.props.machines.filter(m => (m.machineType === 'Dryer') && (m.enabled === 'enabled') && (m.timeRemaining === 0)).length}
                   </Header></span>
                 </div>
               </Grid.Column>
