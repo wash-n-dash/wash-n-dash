@@ -21,7 +21,7 @@ if (Machines.find({}).count() === 0) {
 
 Meteor.publish('Machines', function publish() {
   if (this.userId) {
-    return Machines.find();
+    return Machines.find({}, {fields: {secret: 0}});
   }
   return this.ready();
 });
