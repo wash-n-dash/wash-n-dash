@@ -4,6 +4,7 @@ import { Icon, Input, Dropdown, Checkbox, Button, Table, Container, Card, Header
 import { Machines } from '/imports/api/machine/machine';
 import MachineAdmin from '/imports/ui/components/MachineAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
+import DeleteMachine from '/imports/ui/components/DeleteMachine';
 import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -26,6 +27,7 @@ class ListMachinesAdmin extends React.Component {
               <Table.HeaderCell>Location</Table.HeaderCell>
               <Table.HeaderCell>Status</Table.HeaderCell>
               <Table.HeaderCell>Disable</Table.HeaderCell>
+              <Table.HeaderCell>Delete</Table.HeaderCell>
             </Table.Header>
             <Table.Body>
               {this.props.machines.map((machine, index) =>
@@ -58,6 +60,7 @@ class ListMachinesAdmin extends React.Component {
                                     { $set: { enabled: d.checked ? 'enabled' : 'disabled' } })}
                                 label={machine.enabled}/>
                     </Table.Cell>
+                      <DeleteMachine key={index} machine={machine}/>
                   </Table.Row>)}
             </Table.Body>
             <Table.Footer fullWidth>
