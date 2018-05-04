@@ -33,6 +33,13 @@
       "secret": "$2b$10$lXWY5ixDrGiLic2O5BKPA.cicxwVhidgkkyNc9ynJLVSEvKWtoRfy"
     }
   ],
+  "defaultLocations": [
+    {
+      "name":"freshman dorms",
+      "lat": 21.3,
+      "lng": -157.82
+    }
+  ],
   "defaultAccounts": [
     {
       "email": "admin@foo.com",

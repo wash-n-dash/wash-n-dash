@@ -16,7 +16,7 @@ import ListMachines from '../pages/ListMachines';
 import ListReports from '../pages/ListReports';
 import About from '../pages/About';
 import ContactUs from '../pages/ContactUs';
-import Map from '../pages/Map';
+import MachinesMap from '../pages/Map';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -32,7 +32,7 @@ class App extends React.Component {
               <Route path="/machines" component={ListMachines}/>
               <Route path="/about" component={About}/>
               <Route path="/contactus" component={ContactUs}/>
-              <Route path="/map" component={Map}/>
+              <Route path="/map" component={MachinesMap}/>
               <AdminProtectedRoute path="/admin" component={ListMachinesAdmin}/>
               <AdminProtectedRoute path="/reports" component={ListReports}/>
               <ProtectedRoute path="/signout" component={Signout}/>
