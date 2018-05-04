@@ -5,9 +5,14 @@ import { Reports } from '/imports/api/report/report';
 import { withTracker } from 'meteor/react-meteor-data';
 import ReportRow from '/imports/ui/components/ReportRow';
 import PropTypes from 'prop-types';
-
+import { Bert } from 'meteor/themeteorchef:bert';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListReports extends React.Component {
+
+  delAll() {
+    Reports.remove({});
+    Bert.alert({ type: 'success', message: 'report successfully deleted' });
+  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -32,9 +37,11 @@ class ListReports extends React.Component {
           <Table.Footer fullWidth>
             <Table.Row>
               <Table.HeaderCell colSpan='4'>
-                <Button negative floated='right' size='small'>
-                  <Icon name='remove'/>Delete All
-                </Button>
+
+                  <Button negative floated='right' size='small' onClick={this.delAll}>
+                    <Icon name='remove'/>Delete All
+                  </Button>
+
               </Table.HeaderCell>
             </Table.Row>
           </Table.Footer>
