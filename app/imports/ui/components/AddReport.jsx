@@ -20,8 +20,8 @@ class AddReport extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { report, machineNumber, createdAt } = data;
-    Reports.insert({ report, machineNumber, createdAt });
+    const { report, machineId, createdAt } = data;
+    Reports.insert({ report, machineId, createdAt });
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -34,7 +34,7 @@ class AddReport extends React.Component {
             <Container style={{ margin: '20px' }}><TextField label="Add a timestamped report" name='report'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
-              <HiddenField name='machineNumber' value={this.props.machineNumber}/>
+              <HiddenField name='machineId' value={this.props.machineId}/>
               <HiddenField name='createdAt' value={new Date()}/></Container>
           </AutoForm>
         </div>
@@ -43,7 +43,7 @@ class AddReport extends React.Component {
 }
 
 AddReport.propTypes = {
-  machineNumber: PropTypes.number.isRequired,
+  machineId: PropTypes.string.isRequired,
 };
 
 export default AddReport;

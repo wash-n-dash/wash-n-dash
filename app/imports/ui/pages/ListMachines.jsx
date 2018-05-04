@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Machine documents */
 class ListMachines extends React.Component {
-  machineTypes = [{ text: 'Washing machines', value: 'washer' }, { text: 'Dryers', value: 'dryer' }];
+  machineTypes = [{ text: 'Washing machines', value: 'Washer' }, { text: 'Dryers', value: 'Dryer' }];
 
   constructor(props) {
     super(props);
@@ -27,8 +27,8 @@ class ListMachines extends React.Component {
   }
 
   filteredMachines() {
-    let typeFilter = this.state.typeFilter;
-    let locationFilter = this.state.locationFilter;
+    const typeFilter = this.state.typeFilter;
+    const locationFilter = this.state.locationFilter;
 
     return this.props.machines
       .filter(m => m.enabled === 'enabled')
@@ -38,7 +38,6 @@ class ListMachines extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const locations = this.locations;
     const machineTypes = this.machineTypes;
 
     return (
@@ -59,7 +58,7 @@ class ListMachines extends React.Component {
           <Card.Group>
             {this.filteredMachines().map((machine, index) =>
                 <Machine key={index} machine={machine}
-                         reports={this.props.reports.filter(report => (report.machineNumber === machine.machineNumber))}
+                         reports={this.props.reports.filter(report => (report.machineId === machine._id))}
                 />)}
           </Card.Group>
         </Container>

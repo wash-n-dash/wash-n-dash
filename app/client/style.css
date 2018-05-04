@@ -15,6 +15,11 @@
   background: rgb(0, 0, 0, .4);
 }
 
+.white-background {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 30px;
+}
+
 .crop {
   width: 180px;
   height: 30px;

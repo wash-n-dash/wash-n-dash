@@ -59,7 +59,7 @@ class Machine extends React.Component {
                 <Modal.Header style={{ color: 'blue', fontSize: '35px' }}>
                   Report an issue for {this.props.machine.machineType} {this.props.machine.machineNumber}
                 </Modal.Header>
-                <AddReport machineNumber={this.props.machine.machineNumber}/>
+                <AddReport machineId={this.props.machine._id}/>
                 <Header>Reported Issues</Header>
                 <Modal.Content style={{ height: '200px' }} scrolling>
                   <Modal.Description>
