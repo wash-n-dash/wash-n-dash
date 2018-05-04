@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Image, Header, Grid, Icon } from 'semantic-ui-react';
+import { Image, Header, Grid, Icon, Loader } from 'semantic-ui-react';
 import { Machines } from '/imports/api/machine/machine';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 class Landing extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    return this.renderPage();
+    return (this.props.ready) ? this.renderPage() : <Loader>Getting data</Loader>
   }
 
   /* Render the page once total number of available machines have been received. */
