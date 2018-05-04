@@ -17,11 +17,47 @@ class Landing extends React.Component {
   renderPage() {
     return (
         <div className='wash-landing-background' style={{ marginTop: '-10px' }}>
-          <div style={{ marginBottom: '100px' }}>
-            <Image src='images/washndashlogo.png' size='huge' centered
-                   style={{ position: 'relative', top: '80px', left: '100px' }}/>
+          <div className='darkBlue-background'>
+            <Grid centered columns={4}>
 
-            <div id="machineLoader" style={{ position: 'relative', top: '-70px', left: '220px' }}>
+              <Grid.Column>
+                <Header className='nowrap' floated='right' style={{ fontSize: '50px', marginRight: '-250px' }}
+                        inverted
+                        size='huge'>Number of available&nbsp;</Header>
+              </Grid.Column>
+
+              <Grid.Column floated='right' style={{ fontSize: '40px', marginRight: '-450px', marginTop: '-19px' }}>
+                <div className='slideshow'>
+                  <span><Header inverted>washers</Header></span>
+                  <span><Header inverted>dryers</Header></span>
+                </div>
+              </Grid.Column>
+
+              <Grid.Column>
+                <Header inverted size='huge' floated='right'
+                        style={{ fontSize: '50px', marginRight: '-50px' }}>:</Header>
+              </Grid.Column>
+
+              <Grid.Column floated='right' style={{ fontSize: '50px', marginTop: '-25px' }}>
+                <div className='slideshow'>
+                  <span><Header inverted>
+                    {this.props.machines.filter(m => (m.machineType === 'washer') && (m.enabled === 'enabled') && (m.timeRemaining === 0)).length}
+                  </Header></span>
+                  <span><Header inverted>
+                    {this.props.machines.filter(m => (m.machineType === 'dryer') && (m.enabled === 'enabled') && (m.timeRemaining === 0)).length}
+                  </Header></span>
+                </div>
+              </Grid.Column>
+
+            </Grid>
+          </div>
+
+          <div>
+          <div style={{ marginBottom: '-2vh' }}>
+            <Image src='images/washndashlogo.png' size='huge' centered
+                   style={{ position: 'relative', left: '100px' }}/>
+
+            <div id="machineLoader" style={{ position: 'relative', top: '-19vh', left: '30vh' }}>
               <div className="knob"></div>
               <div className="knob" style={{ marginLeft: '-45px' }}></div>
               <div className="rectangle"></div>
@@ -30,9 +66,9 @@ class Landing extends React.Component {
               <div className="loader"></div>
             </div>
           </div>
-
-          <div className='darkBlue-background'>
-            <Grid centered stackable container columns={3}>
+          </div>
+          <div>
+            <Grid centered stackable container columns={3} style={{ marginTop: '-10vh' }}>
               <Grid.Column textAlign='center'>
                 <Icon name='users' inverted size='huge'/>
                 <Header as='h1' inverted>UH Community</Header>
@@ -54,41 +90,6 @@ class Landing extends React.Component {
                 <Header as='h3' inverted>Leave a short description detailing the problems with a certain
                   machine. &nbsp; Broken and unavailable machines will be displayed as disabled. </Header>
               </Grid.Column>
-            </Grid>
-          </div>
-
-
-          <div style={{ height: '300px', paddingTop: '120px' }}>
-            <Grid centered columns={4}>
-
-              <Grid.Column>
-                <Header className='nowrap' floated='right' style={{ fontSize: '50px', marginRight: '-250px' }} inverted
-                        size='huge'>Number of available&nbsp;</Header>
-              </Grid.Column>
-
-              <Grid.Column floated='right' style={{ fontSize: '40px', marginRight: '-450px', marginTop: '-19px' }}>
-                <div className='slideshow'>
-                  <span><Header inverted>washers</Header></span>
-                  <span><Header inverted>dryers</Header></span>
-                </div>
-              </Grid.Column>
-
-              <Grid.Column>
-                <Header inverted size='huge' floated='right'
-                        style={{ fontSize: '50px', marginRight: '-50px' }}>:</Header>
-              </Grid.Column>
-
-              <Grid.Column floated='right' style={{ fontSize: '50px', marginTop: '-25px' }}>
-                <div className='slideshow'>
-                  <span><Header inverted>
-                    {this.props.machines.filter(m => (m.machineType === 'washer') && (m.enabled === 'enabled')).length}
-                  </Header></span>
-                  <span><Header inverted>
-                    {this.props.machines.filter(m => (m.machineType === 'dryer') && (m.enabled === 'enabled')).length}
-                  </Header></span>
-                </div>
-              </Grid.Column>
-
             </Grid>
           </div>
 
