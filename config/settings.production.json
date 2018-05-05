@@ -41,7 +41,7 @@
   ],
   "galaxy.meteor.com": {
     "env": {
-      "MONGO_URL": "mongodb://user:changeme@ds121535.mlab.com:21535/wash-n-dash"
+      "MONGO_URL": "mongodb://user:changeme@ds121535.mlab.com:21535/washndash"
     }
   }
 }
