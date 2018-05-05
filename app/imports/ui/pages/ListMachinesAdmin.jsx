@@ -1,11 +1,9 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Icon, Input, Dropdown, Checkbox, Button, Table, Container, Card, Header, Loader } from 'semantic-ui-react';
+import { Icon, Input, Dropdown, Checkbox, Button, Table, Container, Header, Loader } from 'semantic-ui-react';
 import { Machines } from '/imports/api/machine/machine';
-import MachineAdmin from '/imports/ui/components/MachineAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import DeleteMachine from '/imports/ui/components/DeleteMachine';
-import MachineSecret from '/imports/ui/components/MachineSecret';
 import PropTypes from 'prop-types';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -29,7 +27,6 @@ class ListMachinesAdmin extends React.Component {
               <Table.HeaderCell>Location</Table.HeaderCell>
               <Table.HeaderCell>Status</Table.HeaderCell>
               <Table.HeaderCell>Disable</Table.HeaderCell>
-              <Table.HeaderCell>Secret</Table.HeaderCell>
               <Table.HeaderCell>Delete</Table.HeaderCell>
             </Table.Header>
             <Table.Body>
@@ -42,7 +39,8 @@ class ListMachinesAdmin extends React.Component {
                         value={machine.machineNumber}
                         onChange={(e, d) => Machines.update(
                           { _id: machine._id },
-                          { $set: { machineNumber: d.value } })} />
+                          { $set: { machineNumber: d.value } },
+                        )} />
                     </Table.Cell>
                     <Table.Cell>
                       <Dropdown
@@ -51,7 +49,8 @@ class ListMachinesAdmin extends React.Component {
                           selection
                           onChange={(e, d) => Machines.update(
                               { _id: machine._id },
-                              { $set: { machineType: d.value } })}
+                              { $set: { machineType: d.value } },
+                          )}
                           value={machine.machineType}/>
                     </Table.Cell>
                     <Table.Cell>
@@ -59,7 +58,8 @@ class ListMachinesAdmin extends React.Component {
                           defaultValue={machine.location}
                           onChange={(e, d) => Machines.update(
                               { _id: machine._id },
-                              { $set: { location: d.value } })}/>
+                              { $set: { location: d.value } },
+                          )}/>
                     </Table.Cell>
                     <Table.Cell>{machine.timeRemaining} minutes remaining</Table.Cell>
                     <Table.Cell>
@@ -67,10 +67,10 @@ class ListMachinesAdmin extends React.Component {
                                 defaultChecked={machine.enabled === 'enabled'}
                                 onChange={(e, d) => Machines.update(
                                     { _id: machine._id },
-                                    { $set: { enabled: d.checked ? 'enabled' : 'disabled' } })}
+                                    { $set: { enabled: d.checked ? 'enabled' : 'disabled' } },
+                                )}
                                 label={machine.enabled}/>
                     </Table.Cell>
-                    <MachineSecret machine={machine} />
                     <DeleteMachine key={index} machine={machine}/>
                   </Table.Row>)}
             </Table.Body>
@@ -78,7 +78,7 @@ class ListMachinesAdmin extends React.Component {
               <Table.Row>
                 <Table.HeaderCell colSpan='8'>
                   <Button floated='right' icon labelPosition='left' primary size='small'
-                          onClick={(e, d) => Machines.insert({
+                          onClick={(e) => Machines.insert({
                             enabled: 'disabled',
                             machineNumber: this.props.machines.length + 1,
                           })}>
