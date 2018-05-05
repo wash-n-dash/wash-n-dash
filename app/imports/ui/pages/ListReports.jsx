@@ -4,10 +4,16 @@ import { Icon, Button, Table, Container, Header, Loader } from 'semantic-ui-reac
 import { Reports } from '/imports/api/report/report';
 import { withTracker } from 'meteor/react-meteor-data';
 import ReportRow from '/imports/ui/components/ReportRow';
+import DeleteAllReports from '/imports/ui/components/DeleteAllReports';
 import PropTypes from 'prop-types';
-
+import { Bert } from 'meteor/themeteorchef:bert';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListReports extends React.Component {
+
+  delAll() {
+    Reports.remove({});
+    Bert.alert({ type: 'success', message: 'report successfully deleted' });
+  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -30,13 +36,11 @@ class ListReports extends React.Component {
             {this.props.reports.map((r, index) => <ReportRow key={index} report={r} />)}
           </Table.Body>
           <Table.Footer fullWidth>
-            <Table.Row>
+{/*            <Table.Row>
               <Table.HeaderCell colSpan='4'>
-                <Button negative floated='right' size='small'>
-                  <Icon name='remove'/>Delete All
-                </Button>
+                {this.props.reports.map((r, index) => <DeleteAllReports key={index} report={r} />)}
               </Table.HeaderCell>
-            </Table.Row>
+            </Table.Row>*/}
           </Table.Footer>
         </Table>
       </Container>
