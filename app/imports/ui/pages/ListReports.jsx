@@ -36,11 +36,11 @@ class ListReports extends React.Component {
             {this.props.reports.map((r, index) => <ReportRow key={index} report={r} />)}
           </Table.Body>
           <Table.Footer fullWidth>
-            <Table.Row>
+{/*            <Table.Row>
               <Table.HeaderCell colSpan='4'>
                 {this.props.reports.map((r, index) => <DeleteAllReports key={index} report={r} />)}
               </Table.HeaderCell>
-            </Table.Row>
+            </Table.Row>*/}
           </Table.Footer>
         </Table>
       </Container>
