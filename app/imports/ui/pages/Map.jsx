@@ -31,7 +31,7 @@ export class MachinesMap extends React.Component {
   render() {
     return (
       <Map 
-        style={{width: "100%", margin: "0"}}
+        style={{width: "100%", margin: "0", marginTop: "-10vh"}}
         google={this.props.google}
         initialCenter={{
           lat: 21.3,
