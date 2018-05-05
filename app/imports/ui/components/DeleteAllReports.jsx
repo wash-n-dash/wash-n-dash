@@ -12,7 +12,7 @@ class DeleteAllReports extends React.Component {
   }
 
   onDelete() {
-    Reports.remove({});
+    Reports.remove(this.props.report._id);
     this.setState({ open: false });
     Bert.alert({ type: 'success', message: 'Reports successfully deleted' });
   }
@@ -55,6 +55,7 @@ class DeleteAllReports extends React.Component {
 
 DeleteAllReports.propTypes = {
   report: PropTypes.object.isRequired,
+  reports: PropTypes.array.isRequired,
 };
 
 export default withRouter(DeleteAllReports);
