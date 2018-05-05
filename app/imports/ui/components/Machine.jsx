@@ -25,13 +25,12 @@ class Machine extends React.Component {
         <Card color='violet' centered>
           <Card.Content>
             {this.props.machine.timeRemaining === 0 ?
-                (<Image floated='right' size='mini' src='images/greenWasher.png'/>)
-                : <Image floated='right' size='mini' src='images/washerIcon.png'/>}
+                (<Image floated='right' size='tiny' src='images/greenWasher.png'/>)
+                : <Image floated='right' size='tiny' src='images/washerIcon.png'/>}
 
             <Card.Header>
               {this.props.machine.machineType} &nbsp;
               {this.props.machine.machineNumber} &nbsp;
-              {this.props.anyReports ? (<Icon name='warning circle' color='orange'/>) : ''}
             </Card.Header>
             <Card.Meta>
               Location: {this.props.machine.location}
