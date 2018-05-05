@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Card, Image, Button, Feed, Popup, Modal, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Report from '/imports/ui/components/Report';
 import { withTracker } from 'meteor/react-meteor-data';
 import AddReport from '/imports/ui/components/AddReport';
